@@ -1,0 +1,273 @@
+import React from 'react';
+import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+export default function App() {
+  return (
+    <ScrollView style={styles.container}>
+      {/* Search Bar and Notification */}
+      <View style={styles.searchContainer}>
+        <View style={styles.searchBar}>
+          <FontAwesome name="search" size={20} color="gray" style={styles.searchIcon} />
+          <TextInput placeholder="cari" style={styles.searchInput} />
+        </View>
+        <FontAwesome name="bell" size={24} color="yellow" style={styles.bellIcon} />
+      </View>
+
+      {/* Profile Card */}
+      <View style={styles.profileCard}>
+        <View style={styles.profileHeader}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/fQN6penTDUp1Q06LBeXKczmMUrXDgZyX3EeIEulk6TnxAMROB.jpg' }} style={styles.profileImage} />
+          <View>
+            <Text style={styles.profileName}>Halo, Cha Eunwoo</Text>
+            <Text style={styles.profileText}>Tingkatkan semangat perkuliahanmu bersama SIBIMA UNSRI.</Text>
+          </View>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/08Il3fRNJu1XdKHh3d7ZvZoeZQVYCxHbdaiNafTP5qjUAmInA.jpg' }} style={styles.graduateImage} />
+        </View>
+        <View style={styles.profileFooter}>
+          <View>
+            <Text style={styles.profileFooterText}><FontAwesome name="book" size={16} /> Semester 4</Text>
+            <Text style={styles.profileFooterText}><FontAwesome name="clock" size={16} /> Tersisa 3 semester lagi</Text>
+          </View>
+          <View style={styles.ipkContainer}>
+            <Text style={styles.ipkText}>IPK</Text>
+            <Text style={styles.ipkValue}>3.8</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Navigation Icons */}
+      <View style={styles.navContainer}>
+        <View style={styles.navItem}>
+          <View style={styles.navIconContainer}>
+            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/8LcKBf93RYwNMyZkz6eqhVUqpbiEzoc9C0gCpkfsMZPhAmInA.jpg' }} style={styles.navIcon} />
+          </View>
+          <Text style={styles.navText}>Janji Bimbingan</Text>
+        </View>
+        <View style={styles.navItem}>
+          <View style={styles.navIconContainer}>
+            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/6Gkc2f38QBRPSaodAXHyATFe2844MHuulWneThJdGnMcAmInA.jpg' }} style={styles.navIcon} />
+          </View>
+          <Text style={styles.navText}>Progres IPK & SKS Lulus</Text>
+        </View>
+        <View style={styles.navItem}>
+          <View style={styles.navIconContainer}>
+            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/kkMHIFepnhVifkbrQl1Mla8OFyOwkfmV4SZrPAbRDhGiAmInA.jpg' }} style={styles.navIcon} />
+          </View>
+          <Text style={styles.navText}>Milestone</Text>
+        </View>
+        <View style={styles.navItem}>
+          <View style={styles.navIconContainer}>
+            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/i0Vee6y0YwmexJ8uOMJlG3kFXW6ojOUdH1AUYs3bChVTAmInA.jpg' }} style={styles.navIcon} />
+          </View>
+          <Text style={styles.navText}>Status USEPT</Text>
+        </View>
+      </View>
+
+      {/* Information Section */}
+      <View style={styles.infoHeader}>
+        <Text style={styles.infoTitle}>Informasi</Text>
+        <TouchableOpacity style={styles.infoButton}>
+          <Text style={styles.infoButtonText}>Lihat Semua</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.infoCard}>
+        <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
+        <View>
+          <Text style={styles.infoCardTitle}>Instruksi Bimbingan</Text>
+          <Text style={styles.infoCardText}>Ikuti langkah-langkah mudah ini untuk memaksimalkan pengalaman bimbingan Anda. Selamat belajar dan sukses selalu!</Text>
+          <TouchableOpacity style={styles.infoCardButton}>
+            <Text style={styles.infoCardButtonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={styles.infoCard}>
+        <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
+        <View>
+          <Text style={styles.infoCardTitle}>Jadwal Dosen</Text>
+          <Text style={styles.infoCardText}>Temukan jadwal dosen anda dengan cepat dan mudah. Pilih dosen dan lihat jadwal kuliah serta rencanakan pertemuan anda dengan tepat!</Text>
+          <TouchableOpacity style={styles.infoCardButton}>
+            <Text style={styles.infoCardButtonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f3f4f6',
+    padding: 16,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  searchBar: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#e5e7eb',
+    borderRadius: 25,
+    paddingHorizontal: 10,
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    paddingVertical: 8,
+    color: '#4b5563',
+  },
+  bellIcon: {
+    marginLeft: 16,
+  },
+  profileCard: {
+    backgroundColor: '#3b82f6',
+    borderRadius: 10,
+    padding: 16,
+    marginBottom: 16,
+  },
+  profileHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  profileImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 16,
+  },
+  profileName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  profileText: {
+    fontSize: 14,
+    color: '#d1d5db',
+  },
+  graduateImage: {
+    width: 50,
+    height: 50,
+    marginLeft: 'auto',
+  },
+  profileFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#60a5fa',
+    borderRadius: 10,
+    padding: 8,
+    marginTop: 16,
+  },
+  profileFooterText: {
+    fontSize: 14,
+    color: '#1e3a8a',
+  },
+  ipkContainer: {
+    alignItems: 'center',
+  },
+  ipkText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  ipkValue: {
+    backgroundColor: '#fbbf24',
+    color: '#92400e',
+    borderRadius: 25,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    marginTop: 4,
+  },
+  navContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  navItem: {
+    alignItems: 'center',
+  },
+  navIconContainer: {
+    backgroundColor: '#ffffff',
+    padding: 16,
+    borderRadius: 50,
+    marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  navIcon: {
+    width: 40,
+    height: 40,
+  },
+  navText: {
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#1f2937',
+  },
+  infoHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  infoTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  infoButton: {
+    backgroundColor: '#3b82f6',
+    borderRadius: 25,
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+  },
+  infoButtonText: {
+    color: '#ffffff',
+  },
+  infoCard: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  infoImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
+    marginRight: 16,
+  },
+  infoCardTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  infoCardText: {
+    fontSize: 14,
+    color: '#4b5563',
+    marginTop: 4,
+  },
+  infoCardButton: {
+    backgroundColor: '#bfdbfe',
+    borderRadius: 25,
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    marginTop: 8,
+  },
+  infoCardButtonText: {
+    color: '#1e3a8a',
+  },
+});
