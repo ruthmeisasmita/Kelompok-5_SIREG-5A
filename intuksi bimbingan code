@@ -1,0 +1,71 @@
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView, StatusBar } from 'react-native';
+
+export default function App() {
+  return (
+    <ScrollView style={styles.container}>
+      {/* Status Bar Styling */}
+      <StatusBar barStyle="dark-content" />
+
+      {/* Header */}
+      <Text style={styles.header}>Instruksi</Text>
+      
+      {/* Instruction Section */}
+      <View style={styles.instructionContainer}>
+        <Text style={styles.subHeader}>Instruksi Bimbingan</Text>
+
+        <Text style={styles.text}>
+          1. Dosen Penasehat Akademik (PA) menetapkan jadwal konsultasi PA dan menginformasikan kepada mahasiswa PA masing-masing melalui fitur chat.
+        </Text>
+        <Text style={styles.text}>
+          2. Jadwal konsultasi PA dalam satu (1) semester minimal 6 kali dijadwalkan setiap bulan.
+        </Text>
+        <Text style={styles.text}>
+          3. Setiap proses konsultasi PA wajib menandatangani KRS.
+        </Text>
+        <Text style={styles.text}>
+          4. Mahasiswa konsultasi PA mengikuti jadwal yang sudah ditetapkan oleh dosen PA atau dapat membuat janji dengan dosen PA melalui fitur kontak dosen sebelum konsultasi.
+        </Text>
+        <Text style={styles.text}>
+          5. Membawa persyaratan saat konsultasi PA seperti KRS.
+        </Text>
+      </View>
+    </ScrollView>
+  );
+}
+
+// Styling untuk aplikasi
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 20,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 10,
+  },
+  instructionContainer: {
+    marginTop: 20,
+    padding: 15,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+    backgroundColor: '#F9F9F9',
+  },
+  subHeader: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
+    color: '#007AFF',
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 10,
+    lineHeight: 22,
+    color: '#333',
+  },
+});
