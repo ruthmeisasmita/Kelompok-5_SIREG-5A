@@ -1,0 +1,82 @@
+import React from 'react';
+
+const App = () => {
+  return (
+    <div className="bg-white text-black max-w-md mx-auto p-4">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center">
+          <i className="fas fa-arrow-left text-yellow-500 text-2xl"></i>
+          <h1 className="ml-4 text-xl font-bold">
+            Progres IPK & SKS Lulus
+          </h1>
+        </div>
+        <div className="flex items-center space-x-2">
+          <i className="fas fa-signal text-black"></i>
+          <i className="fas fa-wifi text-black"></i>
+          <div className="flex items-center">
+            <i className="fas fa-battery-full text-black"></i>
+            <span className="ml-1 text-black">32</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Profile Card */}
+      <div className="bg-blue-500 rounded-lg p-4 mb-6">
+        <div className="flex items-center mb-4">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/0VNaSenWyc3lSitBuqGGxOqmf24CqEjXXvQ7TPefTPgL3pSOB.jpg"
+            alt="Profile picture of CHA EUNWOO"
+            className="w-12 h-12 rounded-full mr-4"
+          />
+          <div>
+            <h2 className="text-white font-bold">CHA EUNWOO</h2>
+            <p className="text-white">Semester 4</p>
+          </div>
+        </div>
+        <div className="bg-blue-200 rounded-lg p-4">
+          <div className="flex justify-between items-center mb-2">
+            <span>SKS yang Diizinkan</span>
+            <span className="bg-yellow-500 text-white rounded-full px-3 py-1">
+              24
+            </span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span>Total SKS yang Ditempuh</span>
+            <span className="bg-yellow-500 text-white rounded-full px-3 py-1">
+              40
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Progress Section */}
+      <h2 className="text-xl font-bold mb-4">Progres</h2>
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="bg-white rounded-lg shadow p-4">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/TKlu0PmRkf1cayi8Y6PlFbQaeOIgJ6Ltcfq5GSjbZloc7UJnA.jpg"
+            alt="Illustration of a student studying"
+            className="w-full h-32 object-cover mb-4"
+          />
+          <h3 className="text-center font-bold mb-2">KHS</h3>
+          <button className="bg-blue-200 text-blue-700 rounded-full px-4 py-2 w-full">
+            Lihat
+          </button>
+        </div>
+        <div className="bg-white rounded-lg shadow p-4">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/JX0MjecaKDTbXid7DpTfQaDUtomipOcGeMA9zFsayD8e2pSOB.jpg"
+            alt="Illustration of a student reading"
+            className="w-full h-32 object-cover mb-4"
+          />
+          <h3 className="text-center font-bold mb-2">SKS</h3>
+          <button className="bg-blue-200 text-blue-700 rounded-full px-4 py-2 w-full">
+            Lihat
+          </button>
+        </div>
+      </div>
+
+      {/* Upload Documents Section */}
+      <h2 className="text-xl font-bold mb-4">Unggah Dokumen</h2>
+      <div
