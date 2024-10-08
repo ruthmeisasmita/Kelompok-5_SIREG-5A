@@ -1,0 +1,198 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+
+const App = () => {
+  return (
+    <ScrollView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <FontAwesome name="arrow-left" size={24} color="#FBBF24" />
+        <Text style={styles.headerTitle}>Kalender Bimbingan</Text>
+        <View style={styles.headerIcons}>
+          <FontAwesome
+            name="search"
+            size={24}
+            color="black"
+            style={styles.searchIcon}
+          />
+          <FontAwesome name="ellipsis-v" size={24} color="black" />
+        </View>
+      </View>
+
+      {/* Calendar */}
+      <View style={styles.calendarContainer}>
+        <View style={styles.calendarHeader}>
+          <Text style={styles.calendarTitle}>MEI 2023</Text>
+          <View style={styles.calendarNav}>
+            <FontAwesome name="chevron-left" size={18} color="black" />
+            <FontAwesome name="chevron-right" size={18} color="black" />
+          </View>
+        </View>
+        <View style={styles.calendarDays}>
+          {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day) => (
+            <Text key={day} style={styles.calendarDay}>
+              {day}
+            </Text>
+          ))}
+        </View>
+        <TouchableOpacity>
+          <View style={styles.calendarDates}>
+            {[...Array(31).keys()].map((date) => {
+              const day = date + 1;
+              let dateStyle = styles.calendarDate;
+              if (day === 8)
+                dateStyle = [styles.calendarDate, styles.selectedDateBlue];
+              if (day === 10)
+                dateStyle = [styles.calendarDate, styles.selectedDateYellow];
+              return (
+                <Text key={day} style={dateStyle}>
+                  {day}
+                </Text>
+              );
+            })}
+          </View>
+        </TouchableOpacity>
+      </View>
+
+      {/* Schedule */}
+      <Text style={styles.scheduleTitle}>Jadwal Bimbingan</Text>
+      <View style={styles.scheduleContainer}>
+        <TouchableOpacity>
+          <View style={[styles.scheduleItem, styles.scheduleItemBlue]}>
+            <Text style={styles.scheduleDate}>Senin, 08 Mei 2024</Text>
+            <Text style={styles.scheduleText}>
+              Bimbingan bersama Putri Eka Sevtiyuni
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <View style={[styles.scheduleItem, styles.scheduleItemYellow]}>
+            <Text style={styles.scheduleDate}>Rabu, 10 Mei 2024</Text>
+            <Text style={styles.scheduleText}>
+              Bimbingan di forum bersama Putri Eka Sevtiyuni
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    padding: 16,
+    marginTop: 50,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+    // Replacing spaceBetween with margin
+    marginLeft: 16,
+  },
+  searchIcon: {
+    marginRight: 20,
+  },
+  calendarContainer: {
+    backgroundColor: "#F3F4F6",
+    padding: 16,
+    borderRadius: 8,
+  },
+  calendarHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  calendarTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  calendarNav: {
+    flexDirection: "row",
+    // Replacing spaceBetween with margin
+    marginLeft: 8,
+  },
+  calendarDays: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8,
+  },
+  calendarDay: {
+    fontSize: 14,
+    fontWeight: "500",
+    textAlign: "center",
+    flex: 1,
+  },
+  calendarDates: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  calendarDate: {
+    fontSize: 14,
+    fontWeight: "500",
+    textAlign: "center",
+    width: "14.28%", // 100% / 7 days
+    marginVertical: 4,
+  },
+  selectedDateBlue: {
+    backgroundColor: "#BFDBFE",
+    borderRadius: 16,
+    paddingVertical: 4,
+  },
+  selectedDateYellow: {
+    backgroundColor: "#FEF3C7",
+    borderRadius: 16,
+    paddingVertical: 4,
+  },
+  scheduleTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  scheduleContainer: {
+    marginBottom: 16,
+  },
+  scheduleItem: {
+    padding: 16,
+    borderRadius: 8,
+    marginBottom: 8,
+  },
+  scheduleItemBlue: {
+    backgroundColor: "#BFDBFE",
+  },
+  scheduleItemYellow: {
+    backgroundColor: "#FDE68A",
+  },
+  scheduleDate: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#1E3A8A",
+  },
+  scheduleText: {
+    fontSize: 14,
+    color: "#1E3A8A",
+  },
+});
+
+export default App;
