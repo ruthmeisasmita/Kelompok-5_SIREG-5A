@@ -1,0 +1,150 @@
+import React from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+const App = () => {
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <FontAwesome name="arrow-left" size={24} color="#FBBF24" />
+        <Text style={styles.headerTitle}>Milestone</Text>
+        <View style={styles.headerIcons}>
+          <FontAwesome name="search" size={24} color="black" />
+          <FontAwesome name="ellipsis-v" size={24} color="black" />
+        </View>
+      </View>
+      <View style={styles.infoBox}>
+        <View>
+          <Text style={styles.infoText}>Semester 4</Text>
+          <Text style={styles.infoText}>Tersisa 3 semester lagi</Text>
+        </View>
+        <View style={styles.ipkBox}>
+          <Text style={styles.ipkText}>IPK</Text>
+          <Text style={styles.ipkValue}>3.8</Text>
+        </View>
+      </View>
+      <Text style={styles.sectionTitle}>Target Milestone</Text>
+      <View style={styles.milestoneList}>
+        <View style={styles.milestoneItem}>
+          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
+          <View>
+            <Text style={styles.milestoneTitle}>Target Wisuda</Text>
+            <Text>Pelaksanaan: 1 Oktober 2024</Text>
+          </View>
+        </View>
+        <View style={styles.milestoneItem}>
+          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
+          <View>
+            <Text style={styles.milestoneTitle}>Target Skripsi</Text>
+            <Text>Sidang Agustus 2024</Text>
+            <Text>Pengerjaan Agustus 2024</Text>
+            <Text>Proposal Maret 2024</Text>
+          </View>
+        </View>
+        <View style={styles.milestoneItem}>
+          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
+          <View>
+            <Text style={[styles.milestoneTitle, styles.blueText]}>MSIB</Text>
+            <Text>06 Agustus 2023</Text>
+          </View>
+        </View>
+        <View style={styles.milestoneItem}>
+          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
+          <View>
+            <Text style={[styles.milestoneTitle, styles.blueText]}>Kuliah Dengan IPK &gt; 3.0</Text>
+            <Text>Tugas selalu dikerjakan</Text>
+            <Text>Aktif di kelas</Text>
+            <Text>Belajar mandiri</Text>
+          </View>
+        </View>
+      </View>
+      <TouchableOpacity style={styles.addButton}>
+        <Text style={styles.addButtonText}>TAMBAH</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#fff',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  headerIcons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 60,
+  },
+  infoBox: {
+    backgroundColor: '#DBEAFE',
+    padding: 16,
+    borderRadius: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  infoText: {
+    color: '#1D4ED8',
+  },
+  ipkBox: {
+    backgroundColor: '#FBBF24',
+    padding: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  ipkText: {
+    color: '#fff',
+  },
+  ipkValue: {
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  sectionTitle: {
+    color: '#1D4ED8',
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  milestoneList: {
+    marginBottom: 16,
+  },
+  milestoneItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 16,
+  },
+  milestoneIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 16,
+  },
+  milestoneTitle: {
+    fontWeight: 'bold',
+  },
+  blueText: {
+    color: '#1D4ED8',
+  },
+  addButton: {
+    backgroundColor: '#1D4ED8',
+    padding: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  addButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});
