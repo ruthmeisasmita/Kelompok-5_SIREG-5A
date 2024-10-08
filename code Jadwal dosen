@@ -1,185 +1,200 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-export default function App() {
+const ScheduleScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
-        <FontAwesome name="arrow-left" size={24} color="#F59E0B" />
+        <FontAwesome name="arrow-left" size={24} color="#FBBF24" />
         <Text style={styles.headerTitle}>Jadwal Dosen</Text>
-        <FontAwesome name="ellipsis-v" size={24} color="#6B7280" />
+        <View style={styles.headerIcons}>
+          <FontAwesome name="search" size={24} color="black"  style={styles.iconSpacing}/>
+          <FontAwesome name="ellipsis-v" size={24} color="black" />
+        </View>
       </View>
 
-      {/* Detail Jadwal */}
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Jadwal</Text>
         <Text style={styles.detailDate}>Kamis, 10 April 2024</Text>
       </View>
 
-      {/* Jadwal List */}
-      <View style={styles.jadwalList}>
-        {/* Statistika */}
-        <JadwalItem 
-          subject="Statistika"
-          className="A.22"
-          location="Kampus Bukit"
-          time="10.00 - 12.00 AM"
-          lecturer="Alisola Meiriza, S.KOM., M.T"
-          imageSrc="https://placehold.co/50x50"
-          color="#3B82F6"
-        />
-
-        {/* UI & UX */}
-        <JadwalItem 
-          subject="UI & UX"
-          className="D.12"
-          location="Kampus Indralaya"
-          time="08.00 - 11.00 AM"
-          lecturer="Putri Eka Sevhryuni, S.SI., M.T"
-          imageSrc="https://placehold.co/50x50"
-          color="#F59E0B"
-        />
-
-        {/* Praktikum WEB */}
-        <JadwalItem 
-          subject="Praktikum WEB"
-          className="Lab WEB"
-          location="Kampus Bukit"
-          time="09.00 - 10.00 AM"
-          lecturer="Pacu Putra Sauri, M.CS"
-          imageSrc="https://placehold.co/50x50"
-          color="#F59E0B"
-        />
-
-        {/* Statistika 2 */}
-        <JadwalItem 
-          subject="Statistika"
-          className="D.22"
-          location="Kampus Indralaya"
-          time="10.00 - 12.00 AM"
-          lecturer="M. Rudi Saniyas, S.KOM., M.KOM"
-          imageSrc="https://placehold.co/50x50"
-          color="#3B82F6"
-        />
+      <View style={styles.scheduleContainer}>
+        {scheduleData.map((item, index) => (
+          <View key={index} style={styles.scheduleItem}>
+            <View style={[styles.scheduleIndicator, { backgroundColor: item.color }]} />
+            <View style={styles.scheduleContent}>
+              <Text style={styles.scheduleTitle}>{item.title}</Text>
+              <Text style={styles.scheduleClass}>Class: {item.class}</Text>
+              <View style={styles.scheduleInfo}>
+                <FontAwesome name="map-marker" size={16} color="gray" />
+                <Text style={styles.scheduleText}>{item.location}</Text>
+              </View>
+              <View style={styles.scheduleInfo}>
+                <FontAwesome name="clock-o" size={16} color="gray" />
+                <Text style={styles.scheduleText}>{item.time}</Text>
+              </View>
+            </View>
+            <View style={styles.scheduleProfile}>
+              <Image source={{ uri: item.profileImage }} style={styles.profileImage} />
+              <Text style={styles.profileName}>{item.lecturer}</Text>
+            </View>
+          </View>
+        ))}
       </View>
 
-      {/* Button */}
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>LIHAT SEMUA</Text>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>LIHAT SEMUA</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   );
-}
+};
 
-function JadwalItem({ subject, className, location, time, lecturer, imageSrc, color }) {
-  return (
-    <View style={styles.jadwalItem}>
-      <View style={[styles.verticalLine, { backgroundColor: color }]} />
-      <View style={styles.jadwalDetails}>
-        <Text style={styles.subject}>{subject}</Text>
-        <Text style={styles.className}>Class: {className}</Text>
-        <View style={styles.iconText}>
-          <FontAwesome name="map-marker-alt" size={14} color="#6B7280" style={styles.icon} />
-          <Text style={styles.iconTextLabel}>{location}</Text>
-        </View>
-        <View style={styles.iconText}>
-          <FontAwesome name="clock" size={14} color="#6B7280" style={styles.icon} />
-          <Text style={styles.iconTextLabel}>{time}</Text>
-        </View>
-        <Text style={styles.lecturer}>{lecturer}</Text>
-      </View>
-      <Image source={{ uri: imageSrc }} style={styles.profileImage} />
-    </View>
-  );
-}
+const scheduleData = [
+  {
+    title: 'Statistika',
+    class: 'A.22',
+    location: 'Kampus Bukit',
+    time: '10.00 - 12.00 AM',
+    lecturer: 'Allsela Meiriza, S.KOM., M.T',
+    profileImage: 'https://placehold.co/50x50',
+    color: '#3B82F6',
+  },
+  {
+    title: 'UI & UX',
+    class: 'D.12',
+    location: 'Kampus Indralaya',
+    time: '08.00 - 11.00 AM',
+    lecturer: 'Putri Eka Sevtiyani, S.SI., M.T',
+    profileImage: 'https://placehold.co/50x50',
+    color: '#FBBF24',
+  },
+  {
+    title: 'Praktikum WEB',
+    class: 'Lab WEB',
+    location: 'Kampus Bukit',
+    time: '09.00 - 10.00 AM',
+    lecturer: 'Pacu Putra Suarli, M.CS',
+    profileImage: 'https://placehold.co/50x50',
+    color: '#FB923C',
+  },
+  {
+    title: 'Statistika',
+    class: 'D.22',
+    location: 'Kampus Indralaya',
+    time: '10.00 - 12.00 AM',
+    lecturer: 'M. Rudi Sanjaya, S.KOM., M.KOM',
+    profileImage: 'https://placehold.co/50x50',
+    color: '#3B82F6',
+  },
+];
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
     flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
+    marginTop: 50,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    padding: 16,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
+    color: 'black',
+  },
+  headerIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 16,
+  },
+  iconSpacing: {
+    marginRight: 20, // Atur jarak antara ikon pencarian dan titik tiga
   },
   detailContainer: {
-    marginBottom: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   detailTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#1E3A8A',
+    color: '#1F2937',
   },
   detailDate: {
     fontSize: 14,
     color: '#6B7280',
   },
-  jadwalList: {
-    marginBottom: 20,
+  scheduleContainer: {
+    paddingHorizontal: 16,
   },
-  jadwalItem: {
-    flexDirection: 'row',
-    marginBottom: 20,
-    alignItems: 'flex-start',
-  },
-  verticalLine: {
-    width: 5,
-    height: '100%',
-    borderRadius: 2,
-    marginRight: 15,
-  },
-  jadwalDetails: {
-    flex: 1,
-  },
-  subject: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#1E3A8A',
-  },
-  className: {
-    fontSize: 14,
-    color: '#6B7280',
-  },
-  iconText: {
+  scheduleItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 5,
+    marginBottom: 16,
   },
-  icon: {
-    marginRight: 5,
+  scheduleIndicator: {
+    width: 4,
+    height: 96,
+    borderRadius: 4,
   },
-  iconTextLabel: {
+  scheduleContent: {
+    flex: 1,
+    paddingLeft: 8,
+  },
+  scheduleTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1F2937',
+  },
+  scheduleClass: {
     fontSize: 14,
     color: '#6B7280',
   },
-  lecturer: {
-    marginTop: 10,
+  scheduleInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  scheduleText: {
     fontSize: 14,
     color: '#6B7280',
+    marginLeft: 4,
+  },
+  scheduleProfile: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   profileImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+  },
+  profileName: {
+    fontSize: 12,
+    color: '#6B7280',
+    textAlign: 'center',
+    marginTop: 4,
+  },
+  buttonContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   button: {
     backgroundColor: '#3B82F6',
-    paddingVertical: 15,
-    borderRadius: 25,
+    paddingVertical: 12,
+    borderRadius: 8,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
   },
 });
+
+export default ScheduleScreen;
