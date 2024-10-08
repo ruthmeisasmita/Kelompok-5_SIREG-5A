@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const App = () => {
+const Milestone = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -15,46 +15,62 @@ const App = () => {
       </View>
       <View style={styles.infoBox}>
         <View>
-          <Text style={styles.infoText}>Semester 4</Text>
-          <Text style={styles.infoText}>Tersisa 3 semester lagi</Text>
+          <Text style={styles.infoText}>
+            <FontAwesome name="book" size={16} color="#1D4ED8" /> Semester 4
+          </Text>
+          <Text style={styles.infoText}>
+            <FontAwesome name="clock-o" size={16} color="#1D4ED8" /> Tersisa 3 semester lagi
+          </Text>
         </View>
-        <View style={styles.ipkBox}>
-          <Text style={styles.ipkText}>IPK</Text>
-          <Text style={styles.ipkValue}>3.8</Text>
+        <View style={styles.gpaBox}>
+          <Text style={styles.gpaText}>IPK</Text>
+          <Text style={styles.gpaValue}>3.8</Text>
         </View>
       </View>
       <Text style={styles.sectionTitle}>Target Milestone</Text>
       <View style={styles.milestoneList}>
         <View style={styles.milestoneItem}>
-          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
-          <View>
+          <Image
+            source={{ uri: 'https://storage.googleapis.com/a1aa/image/c7e83UypCOy0H6uZqWGAW7GUUoy0VZdDnnqY0Yoi9XlxiWyJA.jpg' }}
+            style={styles.milestoneIcon}
+          />
+          <View style={styles.milestoneContent}>
             <Text style={styles.milestoneTitle}>Target Wisuda</Text>
-            <Text>Pelaksanaan: 1 Oktober 2024</Text>
+            <Text style={styles.milestoneDescription}>Pelaksanaan: 1 Oktober 2024</Text>
           </View>
         </View>
         <View style={styles.milestoneItem}>
-          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
-          <View>
+          <Image
+            source={{ uri: 'https://storage.googleapis.com/a1aa/image/vesbU6JVKp08YCFkQUh8iVpPH0hrkpf74DG2xhTABeTeV0SOB.jpg' }}
+            style={styles.milestoneIcon}
+          />
+          <View style={styles.milestoneContent}>
             <Text style={styles.milestoneTitle}>Target Skripsi</Text>
-            <Text>Sidang Agustus 2024</Text>
-            <Text>Pengerjaan Agustus 2024</Text>
-            <Text>Proposal Maret 2024</Text>
+            <Text style={styles.milestoneDescription}>Sidang Agustus 2024</Text>
+            <Text style={styles.milestoneDescription}>Pengerjaan Agustus 2024</Text>
+            <Text style={styles.milestoneDescription}>Proposal Maret 2024</Text>
           </View>
         </View>
         <View style={styles.milestoneItem}>
-          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
-          <View>
-            <Text style={[styles.milestoneTitle, styles.blueText]}>MSIB</Text>
-            <Text>06 Agustus 2023</Text>
+          <Image
+            source={{ uri: 'https://storage.googleapis.com/a1aa/image/2rCrdKmEm7KZHtvUZbp8vDxdEBqjw8bzH16RlJjbuKKWRL5E.jpg' }}
+            style={styles.milestoneIcon}
+          />
+          <View style={styles.milestoneContent}>
+            <Text style={styles.milestoneTitle}>MSIB</Text>
+            <Text style={styles.milestoneDescription}>06 Agustus 2023</Text>
           </View>
         </View>
         <View style={styles.milestoneItem}>
-          <Image source={{ uri: 'https://placehold.co/50x50' }} style={styles.milestoneIcon} />
-          <View>
-            <Text style={[styles.milestoneTitle, styles.blueText]}>Kuliah Dengan IPK &gt; 3.0</Text>
-            <Text>Tugas selalu dikerjakan</Text>
-            <Text>Aktif di kelas</Text>
-            <Text>Belajar mandiri</Text>
+          <Image
+            source={{ uri: 'https://storage.googleapis.com/a1aa/image/lUJAaOJ45PoVFNqWLGoGjYQy6hysw4frWE2Frjcion5piWyJA.jpg' }}
+            style={styles.milestoneIcon}
+          />
+          <View style={styles.milestoneContent}>
+            <Text style={styles.milestoneTitle}>Kuliah Dengan IPK &gt; 3.0</Text>
+            <Text style={styles.milestoneDescription}>Tugas selalu dikerjakan</Text>
+            <Text style={styles.milestoneDescription}>Aktif di kelas</Text>
+            <Text style={styles.milestoneDescription}>Belajar mandiri</Text>
           </View>
         </View>
       </View>
@@ -68,8 +84,8 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     padding: 16,
-    backgroundColor: '#fff',
   },
   header: {
     flexDirection: 'row',
@@ -83,8 +99,8 @@ const styles = StyleSheet.create({
   },
   headerIcons: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: 60,
+    alignItems: 'center',
+    spaceX: 16,
   },
   infoBox: {
     backgroundColor: '#DBEAFE',
@@ -97,18 +113,19 @@ const styles = StyleSheet.create({
   },
   infoText: {
     color: '#1D4ED8',
+    marginBottom: 4,
   },
-  ipkBox: {
+  gpaBox: {
     backgroundColor: '#FBBF24',
     padding: 8,
     borderRadius: 8,
     alignItems: 'center',
   },
-  ipkText: {
-    color: '#fff',
+  gpaText: {
+    color: 'white',
   },
-  ipkValue: {
-    color: '#fff',
+  gpaValue: {
+    color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -131,11 +148,14 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginRight: 16,
   },
+  milestoneContent: {
+    flex: 1,
+  },
   milestoneTitle: {
     fontWeight: 'bold',
   },
-  blueText: {
-    color: '#1D4ED8',
+  milestoneDescription: {
+    color: '#6B7280',
   },
   addButton: {
     backgroundColor: '#1D4ED8',
@@ -144,7 +164,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addButtonText: {
-    color: '#fff',
+    color: 'white',
     fontWeight: 'bold',
   },
 });
+
+export default Milestone;
