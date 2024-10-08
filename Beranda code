@@ -20,14 +20,14 @@ export default function App() {
           <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/fQN6penTDUp1Q06LBeXKczmMUrXDgZyX3EeIEulk6TnxAMROB.jpg' }} style={styles.profileImage} />
           <View>
             <Text style={styles.profileName}>Halo, Cha Eunwoo</Text>
-            <Text style={styles.profileText}>Tingkatkan semangat perkuliahanmu bersama SIBIMA UNSRI.</Text>
+            <Text style={styles.profileText}>Tingkatkan semangat perkuliahanmu</Text>
+            <Text style={styles.profileText}> bersama SIBIMA UNSRI.</Text>
           </View>
-          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/08Il3fRNJu1XdKHh3d7ZvZoeZQVYCxHbdaiNafTP5qjUAmInA.jpg' }} style={styles.graduateImage} />
         </View>
         <View style={styles.profileFooter}>
           <View>
             <Text style={styles.profileFooterText}><FontAwesome name="book" size={16} /> Semester 4</Text>
-            <Text style={styles.profileFooterText}><FontAwesome name="clock" size={16} /> Tersisa 3 semester lagi</Text>
+            <Text style={styles.profileFooterText}><FontAwesome name="book" size={16} /> Tersisa 3 semester lagi</Text>
           </View>
           <View style={styles.ipkContainer}>
             <Text style={styles.ipkText}>IPK</Text>
@@ -39,28 +39,39 @@ export default function App() {
       {/* Navigation Icons */}
       <View style={styles.navContainer}>
         <View style={styles.navItem}>
+        <TouchableOpacity>
           <View style={styles.navIconContainer}>
             <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/8LcKBf93RYwNMyZkz6eqhVUqpbiEzoc9C0gCpkfsMZPhAmInA.jpg' }} style={styles.navIcon} />
           </View>
-          <Text style={styles.navText}>Janji Bimbingan</Text>
+          </TouchableOpacity>
+          <Text style={styles.navText}>Janji</Text>
+          <Text style={styles.navText}>Bimbingan</Text>
         </View>
         <View style={styles.navItem}>
+        <TouchableOpacity> 
           <View style={styles.navIconContainer}>
             <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/6Gkc2f38QBRPSaodAXHyATFe2844MHuulWneThJdGnMcAmInA.jpg' }} style={styles.navIcon} />
           </View>
-          <Text style={styles.navText}>Progres IPK & SKS Lulus</Text>
+          </TouchableOpacity>
+          <Text style={styles.navText}>Progres IPK</Text>
+          <Text style={styles.navText}>& SKS Lulus</Text>
         </View>
         <View style={styles.navItem}>
+        <TouchableOpacity>
           <View style={styles.navIconContainer}>
             <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/kkMHIFepnhVifkbrQl1Mla8OFyOwkfmV4SZrPAbRDhGiAmInA.jpg' }} style={styles.navIcon} />
           </View>
+          </TouchableOpacity>
           <Text style={styles.navText}>Milestone</Text>
         </View>
         <View style={styles.navItem}>
+        <TouchableOpacity> 
           <View style={styles.navIconContainer}>
             <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/i0Vee6y0YwmexJ8uOMJlG3kFXW6ojOUdH1AUYs3bChVTAmInA.jpg' }} style={styles.navIcon} />
           </View>
-          <Text style={styles.navText}>Status USEPT</Text>
+          </TouchableOpacity>
+          <Text style={styles.navText}>Status</Text>
+          <Text style={styles.navText}>USEPT</Text>
         </View>
       </View>
 
@@ -71,21 +82,35 @@ export default function App() {
           <Text style={styles.infoButtonText}>Lihat Semua</Text>
         </TouchableOpacity>
       </View>
+      
+      {/* Instruksi Bimbingan */}
       <View style={styles.infoCard}>
         <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
         <View>
           <Text style={styles.infoCardTitle}>Instruksi Bimbingan</Text>
-          <Text style={styles.infoCardText}>Ikuti langkah-langkah mudah ini untuk memaksimalkan pengalaman bimbingan Anda. Selamat belajar dan sukses selalu!</Text>
+          <Text style={styles.infoCardText}>Ikuti langkah-langkah mudah ini </Text>
+          <Text style={styles.infoCardText}>untuk memaksimalkan pengalaman</Text>
+          <Text style={styles.infoCardText}>bimbingan Anda. Selamat belajar </Text>
+          <Text style={styles.infoCardText}>dan sukses selalu! </Text>
           <TouchableOpacity style={styles.infoCardButton}>
             <Text style={styles.infoCardButtonText}>Lihat</Text>
           </TouchableOpacity>
         </View>
       </View>
+      
+      {/* Jarak antara Instruksi Bimbingan dan Jadwal Dosen */}
+      <View style={styles.spacing} />
+
+      {/* Jadwal Dosen */}
       <View style={styles.infoCard}>
         <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
         <View>
           <Text style={styles.infoCardTitle}>Jadwal Dosen</Text>
-          <Text style={styles.infoCardText}>Temukan jadwal dosen anda dengan cepat dan mudah. Pilih dosen dan lihat jadwal kuliah serta rencanakan pertemuan anda dengan tepat!</Text>
+          <Text style={styles.infoCardText}>Temukan jadwal dosen anda</Text>
+          <Text style={styles.infoCardText}>dengan cepat dan mudah. Pilih </Text>
+          <Text style={styles.infoCardText}>dosen dan lihat jadwal kuliah serta</Text>
+          <Text style={styles.infoCardText}>rencanakan pertemuan anda </Text>
+          <Text style={styles.infoCardText}>dengan tepat!</Text>
           <TouchableOpacity style={styles.infoCardButton}>
             <Text style={styles.infoCardButtonText}>Lihat</Text>
           </TouchableOpacity>
@@ -105,6 +130,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
+    marginTop: 50,
   },
   searchBar: {
     flex: 1,
@@ -147,7 +173,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   profileText: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#d1d5db',
   },
   graduateImage: {
@@ -170,6 +196,7 @@ const styles = StyleSheet.create({
   },
   ipkContainer: {
     alignItems: 'center',
+    paddingHorizontal: 12,
   },
   ipkText: {
     fontSize: 14,
@@ -191,6 +218,7 @@ const styles = StyleSheet.create({
   },
   navItem: {
     alignItems: 'center',
+    marginVertical: 10, // Atur jarak antar item navigasi
   },
   navIconContainer: {
     backgroundColor: '#ffffff',
@@ -256,18 +284,22 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   infoCardText: {
-    fontSize: 14,
+    fontSize: 11,
     color: '#4b5563',
     marginTop: 4,
   },
   infoCardButton: {
     backgroundColor: '#bfdbfe',
     borderRadius: 25,
-    paddingHorizontal: 16,
+    paddingHorizontal: 30,
     paddingVertical: 4,
     marginTop: 8,
+    alignSelf: 'flex-start',
   },
   infoCardButtonText: {
     color: '#1e3a8a',
+  },
+  spacing: {
+    marginVertical: 10, // Jarak antara Instruksi Bimbingan dan Jadwal Dosen
   },
 });
