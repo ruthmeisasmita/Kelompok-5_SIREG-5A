@@ -1,82 +1,194 @@
 import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 const App = () => {
   return (
-    <div className="bg-white text-black max-w-md mx-auto p-4">
+    <View style={styles.container}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center">
-          <i className="fas fa-arrow-left text-yellow-500 text-2xl"></i>
-          <h1 className="ml-4 text-xl font-bold">
-            Progres IPK & SKS Lulus
-          </h1>
-        </div>
-        <div className="flex items-center space-x-2">
-          <i className="fas fa-signal text-black"></i>
-          <i className="fas fa-wifi text-black"></i>
-          <div className="flex items-center">
-            <i className="fas fa-battery-full text-black"></i>
-            <span className="ml-1 text-black">32</span>
-          </div>
-        </div>
-      </div>
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/0VNaSenWyc3lSitBuqGGxOqmf24CqEjXXvQ7TPefTPgL3pSOB.jpg' }} style={styles.profilePicture} />
+          <Text style={styles.headerText}>Progres IPK & SKS Lulus</Text>
+        </View>
+        <View style={styles.headerRight}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/TKlu0PmRkf1cayi8Y6PlFbQaeOIgJ6Ltcfq5GSjbZloc7UJnA.jpg' }} style={styles.signalIcon} />
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/JX0MjecaKDTbXid7DpTfQaDUtomipOcGeMA9zFsayD8e2pSOB.jpg' }} style={styles.wifiIcon} />
+          <View style={styles.batteryContainer}>
+            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/fa-battery-full.png' }} style={styles.batteryIcon} />
+            <Text style={styles.batteryText}>32</Text>
+          </View>
+        </View>
+      </View>
 
       {/* Profile Card */}
-      <div className="bg-blue-500 rounded-lg p-4 mb-6">
-        <div className="flex items-center mb-4">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/0VNaSenWyc3lSitBuqGGxOqmf24CqEjXXvQ7TPefTPgL3pSOB.jpg"
-            alt="Profile picture of CHA EUNWOO"
-            className="w-12 h-12 rounded-full mr-4"
-          />
-          <div>
-            <h2 className="text-white font-bold">CHA EUNWOO</h2>
-            <p className="text-white">Semester 4</p>
-          </div>
-        </div>
-        <div className="bg-blue-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-2">
-            <span>SKS yang Diizinkan</span>
-            <span className="bg-yellow-500 text-white rounded-full px-3 py-1">
-              24
-            </span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span>Total SKS yang Ditempuh</span>
-            <span className="bg-yellow-500 text-white rounded-full px-3 py-1">
-              40
-            </span>
-          </div>
-        </div>
-      </div>
+      <View style={styles.profileCard}>
+        <View style={styles.profileCardContent}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/0VNaSenWyc3lSitBuqGGxOqmf24CqEjXXvQ7TPefTPgL3pSOB.jpg' }} style={styles.profilePicture} />
+          <Text style={styles.profileName}>CHA EUNWOO</Text>
+          <Text style={styles.profileSemester}>Semester 4</Text>
+        </View>
+        <View style={styles.profileCardFooter}>
+          <Text style={styles.sksText}>SKS yang Diizinkan</Text>
+          <Text style={styles.sksValue}>24</Text>
+          <Text style={styles.sksText}>Total SKS yang Ditempuh</Text>
+          <Text style={styles.sksValue}>40</Text>
+        </View>
+      </View>
 
       {/* Progress Section */}
-      <h2 className="text-xl font-bold mb-4">Progres</h2>
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-white rounded-lg shadow p-4">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/TKlu0PmRkf1cayi8Y6PlFbQaeOIgJ6Ltcfq5GSjbZloc7UJnA.jpg"
-            alt="Illustration of a student studying"
-            className="w-full h-32 object-cover mb-4"
-          />
-          <h3 className="text-center font-bold mb-2">KHS</h3>
-          <button className="bg-blue-200 text-blue-700 rounded-full px-4 py-2 w-full">
-            Lihat
-          </button>
-        </div>
-        <div className="bg-white rounded-lg shadow p-4">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/JX0MjecaKDTbXid7DpTfQaDUtomipOcGeMA9zFsayD8e2pSOB.jpg"
-            alt="Illustration of a student reading"
-            className="w-full h-32 object-cover mb-4"
-          />
-          <h3 className="text-center font-bold mb-2">SKS</h3>
-          <button className="bg-blue-200 text-blue-700 rounded-full px-4 py-2 w-full">
-            Lihat
-          </button>
-        </div>
-      </div>
+      <Text style={styles.progressHeader}>Progres</Text>
+      <View style={styles.progressContainer}>
+        <View style={styles.progressCard}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/TKlu0PmRkf1cayi8Y6PlFbQaeOIgJ6Ltcfq5GSjbZloc7UJnA.jpg' }} style={styles.progressImage} />
+          <Text style={styles.progressHeaderText}>KHS</Text>
+          <TouchableOpacity style={styles.progressButton}>
+            <Text style={styles.progressButtonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.progressCard}>
+          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/JX0MjecaKDTbXid7DpTfQaDUtomipOcGeMA9zFsayD8e2pSOB.jpg' }} style={styles.progressImage} />
+          <Text style={styles.progressHeaderText}>SKS</Text>
+          <TouchableOpacity style={styles.progressButton}>
+            <Text style={styles.progressButtonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
 
       {/* Upload Documents Section */}
-      <h2 className="text-xl font-bold mb-4">Unggah Dokumen</h2>
-      <div
+      <Text style={styles.uploadHeader}>Unggah Dokumen</Text>
+      {/* ... */}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  profilePicture: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 16,
+  },
+  headerText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  signalIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 16,
+  },
+  wifiIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 16,
+  },
+  batteryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  batteryIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 8,
+  },
+  batteryText: {
+    fontSize: 16,
+  },
+  profileCard: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 16,
+    margin: 16,
+  },
+  profileCardContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  profilePicture: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 16,
+  },
+  profileName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  profileSemester: {
+    fontSize: 16,
+  },
+  profileCardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  sksText: {
+    fontSize: 16,
+  },
+  sksValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  progressHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 16,
+  },
+  progressContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  progressCard: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 16,
+    margin: 16,
+  },
+  progressImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 16,
+  },
+  progressHeaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  progressButton: {
+    backgroundColor: '#007bff',
+    borderRadius: 10,
+    padding: 16,
+  },
+  progressButtonText: {
+    fontSize: 16,
+    color: '#fff',
+  },
+  uploadHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    margin: 16,
+  },
+});
