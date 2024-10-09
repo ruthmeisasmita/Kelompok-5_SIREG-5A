@@ -9,14 +9,14 @@ const ScheduleScreen = () => {
         <FontAwesome name="arrow-left" size={24} color="#FBBF24" />
         <Text style={styles.headerTitle}>Jadwal Dosen</Text>
         <View style={styles.headerIcons}>
-          <FontAwesome name="search" size={24} color="black"  style={styles.iconSpacing}/>
+          <FontAwesome name="search" size={24} color="black" style={styles.iconSpacing} />
           <FontAwesome name="ellipsis-v" size={24} color="black" />
         </View>
       </View>
 
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Jadwal</Text>
-        <Text style={styles.detailDate}>Kamis, 10 April 2024</Text>
+        <Text style={styles.detailDate}>Kamis, 11 April 2024</Text>
       </View>
 
       <View style={styles.scheduleContainer}>
@@ -36,7 +36,7 @@ const ScheduleScreen = () => {
               </View>
             </View>
             <View style={styles.scheduleProfile}>
-              <Image source={{ uri: item.profileImage }} style={styles.profileImage} />
+              <Image source={item.profileImage} style={styles.profileImage} />
               <Text style={styles.profileName}>{item.lecturer}</Text>
             </View>
           </View>
@@ -59,7 +59,7 @@ const scheduleData = [
     location: 'Kampus Bukit',
     time: '10.00 - 12.00 AM',
     lecturer: 'Allsela Meiriza, S.KOM., M.T',
-    profileImage: 'https://placehold.co/50x50',
+    profileImage: require('./assets/profile1.png'), 
     color: '#3B82F6',
   },
   {
@@ -68,7 +68,7 @@ const scheduleData = [
     location: 'Kampus Indralaya',
     time: '08.00 - 11.00 AM',
     lecturer: 'Putri Eka Sevtiyani, S.SI., M.T',
-    profileImage: 'https://placehold.co/50x50',
+    profileImage: require('./assets/profile1.png'), 
     color: '#FBBF24',
   },
   {
@@ -77,7 +77,7 @@ const scheduleData = [
     location: 'Kampus Bukit',
     time: '09.00 - 10.00 AM',
     lecturer: 'Pacu Putra Suarli, M.CS',
-    profileImage: 'https://placehold.co/50x50',
+    profileImage: require('./assets/profile1.png'), 
     color: '#FB923C',
   },
   {
@@ -86,7 +86,7 @@ const scheduleData = [
     location: 'Kampus Indralaya',
     time: '10.00 - 12.00 AM',
     lecturer: 'M. Rudi Sanjaya, S.KOM., M.KOM',
-    profileImage: 'https://placehold.co/50x50',
+    profileImage: require('./assets/profile1.png'), 
     color: '#3B82F6',
   },
 ];
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   iconSpacing: {
-    marginRight: 20, // Atur jarak antara ikon pencarian dan titik tiga
+    marginRight: 20,
   },
   detailContainer: {
     paddingHorizontal: 16,
@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
   },
   scheduleProfile: {
     flexDirection: 'column',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
   profileImage: {
