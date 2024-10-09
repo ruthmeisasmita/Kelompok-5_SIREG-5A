@@ -17,7 +17,7 @@ export default function App() {
       {/* Profile Card */}
       <View style={styles.profileCard}>
         <View style={styles.profileHeader}>
-          <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/fQN6penTDUp1Q06LBeXKczmMUrXDgZyX3EeIEulk6TnxAMROB.jpg' }} style={styles.profileImage} />
+          <Image source={require('./assetsibima/profil.png')} style={styles.profileImage} />
           <View>
             <Text style={styles.profileName}>Halo, Cha Eunwoo</Text>
             <Text style={styles.profileText}>Tingkatkan semangat perkuliahanmu</Text>
@@ -41,7 +41,7 @@ export default function App() {
         <View style={styles.navItem}>
         <TouchableOpacity>
           <View style={styles.navIconContainer}>
-            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/8LcKBf93RYwNMyZkz6eqhVUqpbiEzoc9C0gCpkfsMZPhAmInA.jpg' }} style={styles.navIcon} />
+            <Image source={require('./assetsibima/janji_bimbingan.png')} style={styles.navIcon} />
           </View>
           </TouchableOpacity>
           <Text style={styles.navText}>Janji</Text>
@@ -50,7 +50,7 @@ export default function App() {
         <View style={styles.navItem}>
         <TouchableOpacity> 
           <View style={styles.navIconContainer}>
-            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/6Gkc2f38QBRPSaodAXHyATFe2844MHuulWneThJdGnMcAmInA.jpg' }} style={styles.navIcon} />
+            <Image source={require('./assetsibima/progresIPK.png')} style={styles.navIcon} />
           </View>
           </TouchableOpacity>
           <Text style={styles.navText}>Progres IPK</Text>
@@ -59,7 +59,7 @@ export default function App() {
         <View style={styles.navItem}>
         <TouchableOpacity>
           <View style={styles.navIconContainer}>
-            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/kkMHIFepnhVifkbrQl1Mla8OFyOwkfmV4SZrPAbRDhGiAmInA.jpg' }} style={styles.navIcon} />
+            <Image source={require('./assetsibima/milestone.png')} style={styles.navIcon} />
           </View>
           </TouchableOpacity>
           <Text style={styles.navText}>Milestone</Text>
@@ -67,7 +67,7 @@ export default function App() {
         <View style={styles.navItem}>
         <TouchableOpacity> 
           <View style={styles.navIconContainer}>
-            <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/i0Vee6y0YwmexJ8uOMJlG3kFXW6ojOUdH1AUYs3bChVTAmInA.jpg' }} style={styles.navIcon} />
+            <Image source={require('./assetsibima/status_USEPT.png')} style={styles.navIcon} />
           </View>
           </TouchableOpacity>
           <Text style={styles.navText}>Status</Text>
@@ -85,7 +85,7 @@ export default function App() {
       
       {/* Instruksi Bimbingan */}
       <View style={styles.infoCard}>
-        <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
+        <Image source={require('./assetsibima/intruksi_bimbingan.png')} style={styles.infoImage} />
         <View>
           <Text style={styles.infoCardTitle}>Instruksi Bimbingan</Text>
           <Text style={styles.infoCardText}>Ikuti langkah-langkah mudah ini </Text>
@@ -103,7 +103,7 @@ export default function App() {
 
       {/* Jadwal Dosen */}
       <View style={styles.infoCard}>
-        <Image source={{ uri: 'https://storage.googleapis.com/a1aa/image/OfHqVUoWLyQqLicGgwRwip5WefZqIejY9XgPfeii1vuQDwE5E.jpg' }} style={styles.infoImage} />
+        <Image source={require('./assetsibima/jadwal_dosen.png')} style={styles.infoImage} />
         <View>
           <Text style={styles.infoCardTitle}>Jadwal Dosen</Text>
           <Text style={styles.infoCardText}>Temukan jadwal dosen anda</Text>
