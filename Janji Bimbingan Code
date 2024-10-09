@@ -36,9 +36,7 @@ const App = () => {
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.card}>
           <Image
-            source={{
-              uri: "https://storage.googleapis.com/a1aa/image/773Tep9YuISvHywwjOvAbyex4EOtKQoS3OAd21fBfZ4OTlSOB.jpg",
-            }}
+            source={require('./AseetSIBIMA/Putri.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -54,9 +52,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={{
-              uri: "https://storage.googleapis.com/a1aa/image/hy18gDkIIzo6Epwuu5SkXJyageoEXjncXRDdynolK1PZqUyJA.jpg",
-            }}
+            source={require('./AseetSIBIMA/Alsella.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -72,9 +68,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={{
-              uri: "https://storage.googleapis.com/a1aa/image/z1fQ7bfsvnmjbknudC5w5Dx6n9VdpuMvw1NyfGtOxMrqpSJnA.jpg",
-            }}
+            source={require('./AseetSIBIMA/Endang.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -90,9 +84,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={{
-              uri: "https://storage.googleapis.com/a1aa/image/r4W4dz52qjqEHNY1N0xNUaFVNbUQkfGRxbcyLsornlSYqUyJA.jpg",
-            }}
+            source={require('./AseetSIBIMA/Pacu.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -190,4 +182,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
