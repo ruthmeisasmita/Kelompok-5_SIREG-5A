@@ -1,0 +1,161 @@
+import React from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+
+export default function App() {
+  const activities = [
+    { title: "Bimbingan pengajuan beasiswa", date: "4 Oktober 2023, 10:30 siang" },
+    { title: "Bimbingan KRS semester 2", date: "8 Agustus 2023, 18:00 siang" },
+    { title: "Bimbingan hasil studi semester 1", date: "10 Januari 2023, 10:00 siang" },
+    { title: "Bimbingan KRS semester 1", date: "2 Agustus 2022, 13:45 siang" },
+  ];
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+      <TouchableOpacity>
+          <View style={styles.iconContainer}>
+            <FontAwesome name="arrow-left" size={16} color="#FFC727" />
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Logbook</Text>
+        <View style={styles.headerIcons}>
+          <FontAwesome
+            name="search"
+            size={24}
+            color="black"
+            style={styles.searchIcon}
+          />
+          <FontAwesome name="ellipsis-v" size={24} color="black" />
+        </View>
+      </View>
+      <Text style={styles.sectionTitle}>Aktivitas Terakhir</Text>
+      <View style={styles.activityList}>
+        {activities.map((activity, index) => (
+          <ActivityItem
+            key={index}
+            title={activity.title}
+            date={activity.date}
+            isLast={index === activities.length - 1}
+          />
+        ))}
+      </View>
+      <TouchableOpacity style={styles.downloadButton}>
+        <Text style={styles.downloadButtonText}>Unduh Aktifitas</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+}
+
+const ActivityItem = ({ title, date, isLast }) => (
+  <View style={styles.activityItem}>
+    <View style={styles.activityIndicator}>
+      <View style={styles.activityCircle} />
+      {!isLast && <View style={styles.activityLine} />}
+    </View>
+    <View>
+      <Text style={styles.activityTitle}>{title}</Text>
+      <Text style={styles.activityDate}>{date}</Text>
+    </View>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+    padding: 16,
+    marginTop: 50,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  iconContainer: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: "white",
+    borderWidth: 2,
+    borderColor: "#FFC727",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  searchIcon: {
+    marginRight: 30,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#225580",
+    marginBottom: 16,
+    marginTop: 20,
+  },
+  activityList: {
+    marginTop: 20,
+    marginBottom: 16,
+  },
+  activityItem: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginBottom: 50,
+    position: "relative",
+  },
+  activityIndicator: {
+    alignItems: "center",
+    marginRight: 16,
+  },
+  activityCircle: {
+    width: 32,
+    height: 32,
+    backgroundColor: "#FFC727",
+    borderRadius: 16,
+    zIndex: 1,  // Tetap di atas garis
+  },
+  activityLine: {
+    position: "absolute",
+    top: 16,  // Mulai tepat di tengah lingkaran
+    left: 15,  // Posisikan di tengah lingkaran
+    width: 2,
+    height: 70,  // Perpanjang garis untuk mencapai lingkaran berikutnya
+    backgroundColor: "#63ABE6",
+  },
+  activityTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#225580",
+  },
+  activityDate: {
+    fontSize: 14,
+    color: "#9CA3AF",
+  },
+  downloadButton: {
+    backgroundColor: "#63ABE6",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 15,
+    alignItems: "center",
+    marginHorizontal: 60,
+  },
+  downloadButtonText: {
+    color: "#3470A2",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
