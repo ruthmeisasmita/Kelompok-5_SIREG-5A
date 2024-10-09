@@ -1,0 +1,166 @@
+import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  StyleSheet,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+
+const App = () => {
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.iconContainer}>
+          <TouchableOpacity>
+            <Ionicons name="arrow-back-circle" size={28} color="#FFF" />
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.headerTitle}>Informasi</Text>
+        <View style={{ width: 24 }} />
+      </View>
+
+      {/* Kartu Informasi */}
+      <View style={styles.card}>
+        <Image
+          source={require("./AseetSIBIMA/Instruksi Bimbingan.png")}
+          style={styles.cardImage}
+        />
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>Instruksi Bimbingan</Text>
+          <Text style={styles.cardText}>
+            Ikuti langkah-langkah mudah ini untuk memaksimalkan pengalaman bimbingan Anda. Selamat belajar dan sukses selalu!
+          </Text>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Image
+          source={require("./AseetSIBIMA/Jadwal Dosen.png")}
+          style={styles.cardImage}
+        />
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>Jadwal Dosen</Text>
+          <Text style={styles.cardText}>
+            Temukan jadwal dosen Anda dengan cepat dan mudah. Pilih dosen dan
+            lihat jadwal kuliah serta rencanakan pertemuan Anda dengan tepat!
+          </Text>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Image
+          source={require("./AseetSIBIMA/Kalender Bimbingan.png")}
+          style={styles.cardImage}
+        />
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>Kalender Bimbingan</Text>
+          <Text style={styles.cardText}>
+            Atur dan pantau jadwal bimbingan Anda dengan mudah. Pilih tanggal
+            dan waktu yang sesuai, serta pastikan semua sesi bimbingan terjadi
+            dengan rapi. Selalu siap dan terorganisir!
+          </Text>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.card}>
+        <Image
+          source={require("./AseetSIBIMA/Logbook Bimbingan.png")}
+          style={styles.cardImage}
+        />
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>Logbook Bimbingan</Text>
+          <Text style={styles.cardText}>
+            Simpan riwayat bimbingan Anda di sini. Logbook ini mencatat setiap
+            sesi bimbingan. Akses riwayat bimbingan Anda kapan saja untuk
+            referensi dan evaluasi.
+          </Text>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Lihat</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+// Ekspor komponen App sebagai default
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 16,
+    marginTop: 50,
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#000",
+  },
+  iconContainer: {
+    backgroundColor: "#FBBF24",
+    borderRadius: 20,
+    marginLeft: 15,
+  },
+  card: {
+    backgroundColor: "#FFF",
+    borderRadius: 20,
+    margin: 12,
+    padding: 16,
+    flexDirection: "row",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  cardImage: {
+    width: 110,
+    height: 115,
+    borderRadius: 20,
+  },
+  cardContent: {
+    flex: 1,
+    marginLeft: 16,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  cardText: {
+    color: "#6B7280",
+    marginBottom: 8,
+    fontSize: 11,
+  },
+  button: {
+    backgroundColor: "#BFDBFE",
+    paddingVertical: 8,
+    paddingHorizontal: 30,
+    borderRadius: 16,
+    alignSelf: "flex-start",
+  },
+  buttonText: {
+    color: "#1D4ED8",
+    fontWeight: "bold",
+    fontSize: 13,
+  },
+});
