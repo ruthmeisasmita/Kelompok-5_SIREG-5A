@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react"; 
 import {
   View,
   Text,
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  Modal,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   const activities = [
     { title: "Bimbingan pengajuan beasiswa", date: "4 Oktober 2023, 10:30 siang" },
     { title: "Bimbingan KRS semester 2", date: "8 Agustus 2023, 18:00 siang" },
@@ -16,10 +19,15 @@ export default function App() {
     { title: "Bimbingan KRS semester 1", date: "2 Agustus 2022, 13:45 siang" },
   ];
 
+  const handleDownload = () => {
+    // Menampilkan modal ketika tombol unduh ditekan
+    setModalVisible(true);
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-      <TouchableOpacity>
+        <TouchableOpacity>
           <View style={styles.iconContainer}>
             <FontAwesome name="arrow-left" size={16} color="#FFC727" />
           </View>
@@ -46,9 +54,28 @@ export default function App() {
           />
         ))}
       </View>
-      <TouchableOpacity style={styles.downloadButton}>
+      <TouchableOpacity style={styles.downloadButton} onPress={handleDownload}>
         <Text style={styles.downloadButtonText}>Unduh Aktifitas</Text>
       </TouchableOpacity>
+
+      {/* Modal untuk konfirmasi unduhan */}
+      <Modal
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalText}>File telah di download</Text>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.modalButtonText}>OK</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 }
@@ -130,10 +157,10 @@ const styles = StyleSheet.create({
   },
   activityLine: {
     position: "absolute",
-    top: 16,  // Mulai tepat di tengah lingkaran
-    left: 15,  // Posisikan di tengah lingkaran
+    top: 16,  
+    left: 15,  
     width: 2,
-    height: 70,  // Perpanjang garis untuk mencapai lingkaran berikutnya
+    height: 70, 
     backgroundColor: "#63ABE6",
   },
   activityTitle: {
@@ -157,5 +184,33 @@ const styles = StyleSheet.create({
     color: "#3470A2",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    width: 256,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 20,
+    alignItems: "center",
+  },
+  modalText: {
+    fontSize: 16,
+    color: "#374151",
+    marginBottom: 16,
+  },
+  modalButton: {
+    backgroundColor: "#63ABE6",
+    paddingVertical: 8,
+    paddingHorizontal: 30,
+    borderRadius: 20,
+  },
+  modalButtonText: {
+    color: "#3470A2",
+    fontSize: 16,
   },
 });
