@@ -11,8 +11,8 @@ const App = () => {
         </View>
         <Text style={styles.title}>Janji Bimbingan</Text>
         <View style={styles.rightIcons}>
-          <FontAwesome name="search" size={24} color="#ffcc00" style={styles.icon} />
-          <FontAwesome name="ellipsis-v" size={24} color="#ffcc00" style={styles.icon} />
+          <FontAwesome name="search" size={24} color="black" style={styles.icon} />
+          <FontAwesome name="ellipsis-v" size={24} color="black" style={styles.icon} />
         </View>
       </View>
       <View style={styles.content}>
