@@ -1,0 +1,119 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+export default function ChatScreen() {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <FontAwesome name="arrow-left" size={24} color="#FBBF24" />
+        <Text style={styles.headerTitle}>Chat</Text>
+        <FontAwesome name="ellipsis-v" size={24} color="black" />
+      </View>
+      
+      {/* Chat Item - Putri Eka Sevtiyuni */}
+      <View style={styles.chatItem}>
+        <Image
+            source={ require('./Assetsibima/Ibu putri.png')}
+          style={styles.avatar}
+        />
+        <View style={styles.chatContent}>
+          <View style={styles.chatHeader}>
+            <Text style={styles.chatName}>Putri Eka Sevtiyuni, S.SI., M.T.</Text>
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>1</Text>
+            </View>
+          </View>
+          <Text style={styles.chatMessage}>Konfirmasi permohonan bimbingan</Text>
+        </View>
+      </View>
+      
+      {/* Chat Item - Forum Bimbingan */}
+      <View style={styles.chatItem}>
+        <Image
+          source={ require('./Assetsibima/Forum.png')}
+          style={styles.avatar}
+        />
+        <View style={styles.chatContent}>
+          <View style={styles.chatHeader}>
+            <Text style={styles.chatName}>Forum Bimbingan</Text>
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>2</Text>
+            </View>
+          </View>
+          <Text style={styles.chatMessage}>Respon permohonan bimbingan</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white', 
+    paddingTop: 20, 
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#111827', 
+  },
+  chatItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB', 
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#E5E7EB', 
+  },
+  chatContent: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  chatHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  chatName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#111827', 
+  },
+  chatMessage: {
+    color: '#6B7280', 
+    marginTop: 4,
+  },
+  badge: {
+    backgroundColor: '#FBBF24', 
+    borderRadius: 12,
+    minWidth: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 6,
+  },
+  badgeText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+});
