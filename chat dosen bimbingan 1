@@ -1,0 +1,190 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const GuidanceSchedule = () => {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerLeft}>
+          <Icon name="arrow-left" size={24} color="#F59E0B" />
+          <Text style={styles.headerText}>Putri Eka Sevtiyuni, S.Si., M.T.</Text>
+        </View>
+        <View style={styles.headerRight}>
+          <Icon name="phone" size={24} color="#4B5563" />
+          <Icon name="video" size={24} color="#4B5563" style={styles.iconSpacing} />
+        </View>
+      </View>
+
+      {/* Cards */}
+      <View style={styles.cardContainer}>
+        {/* Card 1 */}
+        <View style={styles.card}>
+        <Image source={require('./Assetsibima/jadwal_bimbingan.png')} style={styles.cardImage} />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Jadwal Bimbingan</Text>
+            <Text style={styles.cardDescription}>Jadwal bimbingan anda telah dilihat. Silakan cek status penjadwalan</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Periksa Sekarang</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Card 2 */}
+        <View style={styles.card}>
+        <Image source={require('./Assetsibima/forum_bimbingan.png')} style={styles.cardImage} />
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Forum Bimbingan</Text>
+            <Text style={styles.cardDescription}>Forum bimbingan mahasiswa bersama Putri Eka Sevtiyuni</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Gabung Forum</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+
+      {/* Footer Note */}
+      <View style={styles.footerNote}>
+        <Text style={styles.footerNoteText}>
+          Silakan bergabung ke dalam forum bimbingan tersebut agar dapat mengikuti jadwal bimbingan rutin
+        </Text>
+      </View>
+
+      {/* Chat Input */}
+      <View style={styles.chatInputContainer}>
+        <Icon name="smile-o" size={28} color="#6B7280" />
+        <TextInput
+          style={styles.chatInput}
+          placeholder="Ketik sesuatu"
+          placeholderTextColor="#6B7280"
+        />
+        <Icon name="camera" size={28} color="#6B7280" />
+        <View style={styles.chatButtons}>
+          <TouchableOpacity style={styles.chatButton}>
+            <Icon name="microphone" size={20} color="#FFF" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.chatButton}>
+            <Icon name="paper-plane" size={20} color="#FFF" />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    padding: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerText: {
+    marginLeft: 8,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1F2937',
+  },
+  headerRight: {
+    flexDirection: 'row',
+  },
+  iconSpacing: {
+    marginLeft: 16,
+  },
+  cardContainer: {
+    marginTop: 24,
+  },
+  card: {
+    backgroundColor: '#FEF3C7',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 5,
+    padding: 16,
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
+  cardImage: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+  },
+  cardContent: {
+    marginLeft: 16,
+    flex: 1,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1F2937',
+  },
+  cardDescription: {
+    marginTop: 4,
+    fontSize: 14,
+    color: '#6B7280',
+  },
+  button: {
+    marginTop: 12,
+    backgroundColor: '#F59E0B',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 25,
+  },
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  footerNote: {
+    marginTop: 24,
+    backgroundColor: '#FEF3C7',
+    padding: 16,
+    borderRadius: 10,
+  },
+  footerNoteText: {
+    color: '#6B7280',
+  },
+  chatInputContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#F3F4F6',
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  chatInput: {
+    flex: 1,
+    backgroundColor: '#FFF',
+    borderRadius: 25,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderColor: '#D1D5DB',
+    borderWidth: 1,
+    marginHorizontal: 12,
+  },
+  chatButtons: {
+    flexDirection: 'row',
+  },
+  chatButton: {
+    backgroundColor: '#3B82F6',
+    padding: 12,
+    borderRadius: 50,
+    marginLeft: 8,
+  },
+});
+
+export default GuidanceSchedule;
