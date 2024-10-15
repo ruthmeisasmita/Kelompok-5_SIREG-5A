@@ -1,0 +1,359 @@
+Tampilan terlama khs
+
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+const App = () => {
+  const krsData = [
+    { id: 1, semester: 'Semester 1' },
+    { id: 2, semester: 'Semester 2' },
+    { id: 3, semester: 'Semester 3' },
+    { id: 4, semester: 'Semester 4' },
+  ];
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <FontAwesome name="arrow-left" size={24} color="#F7DC6F" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Progres IPK & SKS Lulus</Text>
+        <TouchableOpacity>
+          <FontAwesome name="ellipsis-v" size={24} color="#9CA3AF" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Garis Biru di Atas KRS */}
+      <View style={styles.blueLine} />
+
+      <View style={styles.krsContainer}>
+        <Text style={styles.krsTitle}>IPK</Text>
+      </View>
+
+      {/* Garis Biru di Bawah KRS */}
+      <View style={styles.blueLine} />
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.filterButton}>
+          <Text style={styles.buttonText}>Terbaru</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.filterButton}>
+          <Text style={styles.buttonText}>Terlama</Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={styles.scrollView}>
+        {krsData.map((item) => (
+          <View key={item.id} style={styles.krsCard}>
+            <View style={styles.iconContainer}>
+              <Image
+                source={{ uri: 'https://storage.googleapis.com/a1aa/image/qQ7iMNCIXeyODaxvC161c3ZBU6N4wvfdATtjfOGpcrdOA4NnA.jpg' }}
+                style={styles.icon}
+              />
+            </View>
+            <View style={styles.krsInfo}>
+              <Text style={styles.krsText}>KHS {item.semester}</Text>
+            </View>
+            <View style={styles.buttonGroup}>
+              <TouchableOpacity style={styles.actionButton}>
+                <Text style={styles.actionButtonText}>Lihat</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.redActionButton}>
+                <Text style={styles.actionButtonText}>Hapus</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6', // bg-gray-100
+    paddingTop: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB', // border-gray-300
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  krsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  krsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#3B82F6', 
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 8,
+  },
+  filterButton: {
+    backgroundColor: '#BFDBFE', 
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginHorizontal: 4,
+  },
+  buttonText: {
+    color: '#3B82F6', 
+    fontWeight: '600',
+  },
+  scrollView: {
+    padding: 16,
+  },
+  krsCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    marginBottom: 16,
+  },
+  iconContainer: {
+    marginRight: 16,
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+  },
+  krsInfo: {
+    flex: 1,
+  },
+  krsText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  buttonGroup: {
+    flexDirection: 'row',
+  },
+  actionButton: {
+    backgroundColor: '#FBBF24', 
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 4,
+  },
+  redActionButton: {
+    backgroundColor: '#F44336', 
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 4,
+  },
+  actionButtonText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  blueLine: {
+    height: 3,
+    backgroundColor: '#3B82F6', // Warna biru untuk garis
+    marginVertical: 0,
+    marginHorizontal: 1,
+  },
+});
+
+export default App;
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Tampilan terbaru khs
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+
+const App = () => {
+  const krsData = [
+    { id: 1, semester: 'Semester 4' },
+    { id: 2, semester: 'Semester 3' },
+    { id: 3, semester: 'Semester 2' },
+    { id: 4, semester: 'Semester 1' },
+  ];
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity>
+          <FontAwesome name="arrow-left" size={24} color="#F7DC6F" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Progres IPK & SKS Lulus</Text>
+        <TouchableOpacity>
+          <FontAwesome name="ellipsis-v" size={24} color="#9CA3AF" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Garis Biru di Atas KRS */}
+      <View style={styles.blueLine} />
+
+      <View style={styles.krsContainer}>
+        <Text style={styles.krsTitle}>IPK</Text>
+      </View>
+
+      {/* Garis Biru di Bawah KRS */}
+      <View style={styles.blueLine} />
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.filterButton}>
+          <Text style={styles.buttonText}>Terbaru</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.filterButton}>
+          <Text style={styles.buttonText}>Terlama</Text>
+        </TouchableOpacity>
+      </View>
+
+      <ScrollView style={styles.scrollView}>
+        {krsData.map((item) => (
+          <View key={item.id} style={styles.krsCard}>
+            <View style={styles.iconContainer}>
+              <Image
+                source={{ uri: 'https://storage.googleapis.com/a1aa/image/qQ7iMNCIXeyODaxvC161c3ZBU6N4wvfdATtjfOGpcrdOA4NnA.jpg' }}
+                style={styles.icon}
+              />
+            </View>
+            <View style={styles.krsInfo}>
+              <Text style={styles.krsText}>KHS {item.semester}</Text>
+            </View>
+            <View style={styles.buttonGroup}>
+              <TouchableOpacity style={styles.actionButton}>
+                <Text style={styles.actionButtonText}>Lihat</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.redActionButton}>
+                <Text style={styles.actionButtonText}>Hapus</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6', // bg-gray-100
+    paddingTop: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB', // border-gray-300
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333333',
+  },
+  krsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  krsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#3B82F6', 
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 8,
+  },
+  filterButton: {
+    backgroundColor: '#BFDBFE', 
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginHorizontal: 4,
+  },
+  buttonText: {
+    color: '#3B82F6', 
+    fontWeight: '600',
+  },
+  scrollView: {
+    padding: 16,
+  },
+  krsCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    marginBottom: 16,
+  },
+  iconContainer: {
+    marginRight: 16,
+  },
+  icon: {
+    width: 50,
+    height: 50,
+    borderRadius: 8,
+  },
+  krsInfo: {
+    flex: 1,
+  },
+  krsText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  buttonGroup: {
+    flexDirection: 'row',
+  },
+  actionButton: {
+    backgroundColor: '#FBBF24', 
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 4,
+  },
+  redActionButton: {
+    backgroundColor: '#F44336', 
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    marginLeft: 4,
+  },
+  actionButtonText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+  blueLine: {
+    height: 3,
+    backgroundColor: '#3B82F6', // Warna biru untuk garis
+    marginVertical: 0,
+    marginHorizontal: 1,
+  },
+});
+
+export default App;
+
+
