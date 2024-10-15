@@ -1,30 +1,106 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  FlatList,
+  Modal,
+  Alert,
+} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const App = () => {
-  const krsData = [
-    { id: 1, semester: 'Semester 4' },
-    { id: 2, semester: 'Semester 3' },
-    { id: 3, semester: 'Semester 2' },
-    { id: 4, semester: 'Semester 1' },
+const ProgressScreen = () => {
+  // State untuk mengelola sorting: 'Terbaru' atau 'Terlama'
+  const [sortOrder, setSortOrder] = useState('Terbaru');
+  
+  // State untuk modal konfirmasi hapus
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedSemester, setSelectedSemester] = useState(null);
+
+  // Data KHS
+  const initialData = [
+    { id: '1', semester: 'Semester 1', date: '2023-01-15' },
+    { id: '2', semester: 'Semester 2', date: '2023-06-20' },
+    { id: '3', semester: 'Semester 3', date: '2023-12-05' },
+    { id: '4', semester: 'Semester 4', date: '2024-05-10' },
   ];
 
+  // Mengurutkan data berdasarkan sortOrder
+  const sortedData = initialData.sort((a, b) => {
+    if (sortOrder === 'Terbaru') {
+      return new Date(b.date) - new Date(a.date);
+    } else {
+      return new Date(a.date) - new Date(b.date);
+    }
+  });
+
+  // Fungsi untuk menangani penghapusan
+  const handleDelete = (semester) => {
+    setSelectedSemester(semester);
+    setModalVisible(true);
+  };
+
+  const confirmDelete = () => {
+    // Logika penghapusan file
+    Alert.alert('Dihapus', `${selectedSemester.semester} telah dihapus.`);
+    setModalVisible(false);
+    setSelectedSemester(null);
+  };
+
+  const cancelDelete = () => {
+    setModalVisible(false);
+    setSelectedSemester(null);
+  };
+
+  // Fungsi untuk merender setiap item KHS
+  const renderItem = ({ item }) => (
+    <View style={styles.krsCard}>
+      <View style={styles.iconContainer}>
+        <Image
+          source={{ uri: 'https://storage.googleapis.com/a1aa/image/qQ7iMNCIXeyODaxvC161c3ZBU6N4wvfdATtjfOGpcrdOA4NnA.jpg' }}
+          style={styles.icon}
+        />
+      </View>
+      <View style={styles.krsInfo}>
+        <Text style={styles.krsText}>KRS {item.semester}</Text>
+      </View>
+      <View style={styles.buttonGroup}>
+        <TouchableOpacity
+          style={styles.viewButton}
+          onPress={() => Alert.alert('Lihat ditekan', `Menampilkan KRS ${item.semester}`)}
+        >
+          <Text style={styles.viewButtonText}>Lihat</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => handleDelete(item)}
+        >
+          <Text style={styles.deleteButtonText}>Hapus</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity>
-          <FontAwesome name="arrow-left" size={24} color="#F7DC6F" />
+        <TouchableOpacity onPress={() => Alert.alert('Kembali ditekan')}>
+          <Ionicons name="arrow-back" size={24} color="#F7DC6F" />
         </TouchableOpacity>
         <Text style={styles.title}>Progres IPK & SKS Lulus</Text>
-        <TouchableOpacity>
-          <FontAwesome name="ellipsis-v" size={24} color="#9CA3AF" />
+        <TouchableOpacity onPress={() => Alert.alert('Menu lebih ditekan')}>
+          <Ionicons name="ellipsis-vertical" size={24} color="#9CA3AF" />
         </TouchableOpacity>
       </View>
 
       {/* Garis Biru di Atas KRS */}
       <View style={styles.blueLine} />
 
+      {/* Bagian IPK */}
       <View style={styles.krsContainer}>
         <Text style={styles.krsTitle}>KRS</Text>
       </View>
@@ -32,39 +108,56 @@ const App = () => {
       {/* Garis Biru di Bawah KRS */}
       <View style={styles.blueLine} />
 
+      {/* Tombol Sorting */}
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.filterButton}>
-          <Text style={styles.buttonText}>Terbaru</Text>
+        <TouchableOpacity
+          style={[styles.filterButton, sortOrder === 'Terbaru' && styles.filterButtonActive]}
+          onPress={() => setSortOrder('Terbaru')}
+        >
+          <Text style={[styles.buttonText, sortOrder === 'Terbaru' && styles.buttonTextActive]}>Terbaru</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.filterButton}>
-          <Text style={styles.buttonText}>Terlama</Text>
+        <TouchableOpacity
+          style={[styles.filterButton, sortOrder === 'Terlama' && styles.filterButtonActive]}
+          onPress={() => setSortOrder('Terlama')}
+        >
+          <Text style={[styles.buttonText, sortOrder === 'Terlama' && styles.buttonTextActive]}>Terlama</Text>
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={styles.scrollView}>
-        {krsData.map((item) => (
-          <View key={item.id} style={styles.krsCard}>
-            <View style={styles.iconContainer}>
-              <Image
-                source={{ uri: 'https://storage.googleapis.com/a1aa/image/qQ7iMNCIXeyODaxvC161c3ZBU6N4wvfdATtjfOGpcrdOA4NnA.jpg' }}
-                style={styles.icon}
-              />
+      {/* Daftar KHS */}
+      <FlatList
+        data={sortedData}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={styles.scrollView}
+      />
+
+      {/* Modal Konfirmasi Hapus */}
+      <Modal
+        visible={modalVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={cancelDelete}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Ionicons name="document-text" size={24} color="#FF0000" />
+              <Text style={styles.modalTitle}>{selectedSemester ? `KRS ${selectedSemester.semester}` : ''}</Text>
             </View>
-            <View style={styles.krsInfo}>
-              <Text style={styles.krsText}>KRS {item.semester}</Text>
-            </View>
-            <View style={styles.buttonGroup}>
-              <TouchableOpacity style={styles.actionButton}>
-                <Text style={styles.actionButtonText}>Lihat</Text>
+            <Text style={styles.modalText}>Apakah anda yakin ingin menghapus file ini?</Text>
+            <View style={styles.modalButtonGroup}>
+              <TouchableOpacity style={styles.modalCancelButton} onPress={cancelDelete}>
+                <Text style={styles.modalCancelButtonText}>Batal</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.redActionButton}>
-                <Text style={styles.actionButtonText}>Hapus</Text>
+              <TouchableOpacity style={styles.modalDeleteButton} onPress={confirmDelete}>
+                <Text style={styles.modalDeleteButtonText}>Ya, Hapus</Text>
               </TouchableOpacity>
             </View>
           </View>
-        ))}
-      </ScrollView>
-    </View>
+        </View>
+      </Modal>
+    </SafeAreaView>
   );
 };
 
@@ -78,15 +171,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 16,
+    paddingVertical: 20, // Meningkatkan paddingVertical untuk menggeser elemen ke bawah
+    paddingHorizontal: 16,
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB', // border-gray-300
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '500', // Medium weight
     color: '#333333',
+    marginTop: 2, // Penyesuaian vertikal
+  },
+  blueLine: {
+    height: 3,
+    backgroundColor: '#3B82F6', // Warna biru untuk garis
+    marginVertical: 0,
+    marginHorizontal: 1,
   },
   krsContainer: {
     alignItems: 'center',
@@ -94,23 +195,31 @@ const styles = StyleSheet.create({
   },
   krsTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#3B82F6', 
+    fontWeight: '500',
+    color: '#3B82F6', // Biru-500
   },
   buttonContainer: {
     flexDirection: 'row',
     marginTop: 8,
+    justifyContent: 'center',
   },
   filterButton: {
-    backgroundColor: '#BFDBFE', 
-    paddingHorizontal: 12,
+    backgroundColor: '#BFDBFE', // Biru-100
+    paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
     marginHorizontal: 4,
   },
+  filterButtonActive: {
+    backgroundColor: '#3B82F6', // Biru-500
+  },
   buttonText: {
-    color: '#3B82F6', 
+    color: '#3B82F6', // Biru-500
     fontWeight: '600',
+    fontSize: 14,
+  },
+  buttonTextActive: {
+    color: '#FFFFFF', // Putih
   },
   scrollView: {
     padding: 16,
@@ -142,34 +251,97 @@ const styles = StyleSheet.create({
   krsText: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#4B5563', // Abu-700
   },
   buttonGroup: {
     flexDirection: 'row',
   },
-  actionButton: {
-    backgroundColor: '#FBBF24', 
+  viewButton: {
+    backgroundColor: '#FDE68A', // Kuning-100
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
-    marginLeft: 4,
+    marginRight: 8,
   },
-  redActionButton: {
-    backgroundColor: '#F44336', 
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 20,
-    marginLeft: 4,
-  },
-  actionButtonText: {
-    color: '#FFFFFF',
+  viewButtonText: {
+    color: '#FBBF24', // Kuning-500
     fontWeight: '600',
+    fontSize: 14,
   },
-  blueLine: {
-    height: 3,
-    backgroundColor: '#3B82F6', // Warna biru untuk garis
-    marginVertical: 0,
-    marginHorizontal: 1,
+  deleteButton: {
+    backgroundColor: '#FCA5A5', // Merah-100
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  deleteButtonText: {
+    color: '#EF4444', // Merah-500
+    fontWeight: '600',
+    fontSize: 14,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)', // Background semi-transparan
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    backgroundColor: '#FFFFFF',
+    padding: 24,
+    borderRadius: 12,
+    width: '80%',
+    alignItems: 'center',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  modalTitle: {
+    marginLeft: 12,
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#111827',
+  },
+  modalText: {
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#4B5563',
+    marginBottom: 24,
+  },
+  modalButtonGroup: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  modalCancelButton: {
+    backgroundColor: '#FBBF24', // Kuning-500
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 9999,
+    flex: 1,
+    marginRight: 8,
+    alignItems: 'center',
+  },
+  modalCancelButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '500',
+  },
+  modalDeleteButton: {
+    backgroundColor: '#EF4444', // Merah-500
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 9999,
+    flex: 1,
+    marginLeft: 8,
+    alignItems: 'center',
+  },
+  modalDeleteButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
 
-export default App;
+export default ProgressScreen;
