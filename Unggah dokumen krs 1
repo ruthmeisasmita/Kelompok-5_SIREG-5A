@@ -1,0 +1,210 @@
+import React from 'react';
+import { SafeAreaView, View, Text, TextInput, ScrollView, StyleSheet } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const FileManager = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.card}>
+          <View style={styles.inputContainer}>
+            <Ionicons name="search" size={20} color="#9CA3AF" style={styles.icon} />
+            <TextInput
+              placeholder="Search folder or files"
+              style={styles.input}
+            />
+          </View>
+          <View style={styles.storageContainer}>
+            <View style={styles.storageItem}>
+              <View style={styles.storageIcon}>
+                <Text style={styles.storagePercentage}>66%</Text>
+              </View>
+              <View style={styles.storageInfo}>
+                <Text style={styles.storageTitle}>Internal Storage</Text>
+                <Text style={styles.storageSubtitle}>85 GB of 128 GB used</Text>
+              </View>
+            </View>
+            <Text style={styles.link}>View Details</Text>
+          </View>
+          <View style={styles.storageContainer}>
+            <View style={styles.storageItem}>
+              <View style={styles.storageIcon}>
+                <Text style={styles.storagePercentage}>37%</Text>
+              </View>
+              <View style={styles.storageInfo}>
+                <Text style={styles.storageTitle}>Cloud Storage</Text>
+                <Text style={styles.storageSubtitle}>131 GB of 2 TB used</Text>
+              </View>
+            </View>
+            <Text style={styles.link}>Go to storage lists</Text>
+          </View>
+          <View style={styles.favoritesContainer}>
+            <View style={styles.header}>
+              <Text style={styles.headerTitle}>Favorites</Text>
+              <Text style={styles.link}>See All</Text>
+            </View>
+            <View style={styles.favoriteItem}>
+              <Ionicons name="folder" size={24} color="#FBBF24" />
+              <View>
+                <Text style={styles.favoriteTitle}>Download</Text>
+                <Text style={styles.favoriteSubtitle}>5 items • 4.6 GB</Text>
+              </View>
+            </View>
+            <View style={styles.favoriteItem}>
+              <Ionicons name="folder" size={24} color="#FBBF24" />
+              <View>
+                <Text style={styles.favoriteTitle}>Canva</Text>
+                <Text style={styles.favoriteSubtitle}>31 items • 821 MB</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.recentFilesContainer}>
+            <View style={styles.header}>
+              <Text style={styles.headerTitle}>Recent Files</Text>
+              <Text style={styles.link}>See All</Text>
+            </View>
+            <View style={styles.fileItem}>
+              <Ionicons name="document" size={24} color="#3B82F6" />
+              <View>
+                <Text style={styles.fileTitle}>KHS Semester 4.pdf</Text>
+                <Text style={styles.fileSubtitle}>2MB</Text>
+              </View>
+            </View>
+            <View style={styles.fileItem}>
+              <Ionicons name="document" size={24} color="#3B82F6" />
+              <View>
+                <Text style={styles.fileTitle}>KRS Semester 4.pdf</Text>
+                <Text style={styles.fileSubtitle}>140Kb</Text>
+              </View>
+            </View>
+            <View style={styles.fileItem}>
+              <Ionicons name="videocam" size={24} color="#3B82F6" />
+              <View>
+                <Text style={styles.fileTitle}>Indonesia_Raya_youtube.com.mp4</Text>
+                <Text style={styles.fileSubtitle}>34MB</Text>
+              </View>
+            </View>
+            <View style={styles.fileItem}>
+              <Ionicons name="image" size={24} color="#3B82F6" />
+              <View>
+                <Text style={styles.fileTitle}>DSC2021084131.jpg</Text>
+                <Text style={styles.fileSubtitle}>2MB</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6', // bg-gray-100
+    padding: 16,
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  icon: {
+    marginRight: 8,
+  },
+  input: {
+    flex: 1,
+    padding: 8,
+    borderRadius: 8,
+    borderColor: '#D1D5DB',
+    borderWidth: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  storageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  storageItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  storageIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#BFDBFE',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  storagePercentage: {
+    color: '#3B82F6',
+    fontWeight: 'bold',
+  },
+  storageInfo: {
+    marginLeft: 8,
+  },
+  storageTitle: {
+    fontWeight: '500',
+    color: '#4B5563',
+  },
+  storageSubtitle: {
+    color: '#6B7280',
+  },
+  link: {
+    color: '#3B82F6',
+  },
+  favoritesContainer: {
+    marginBottom: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  headerTitle: {
+    fontWeight: '500',
+    color: '#4B5563',
+  },
+  favoriteItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  favoriteTitle: {
+    color: '#4B5563',
+  },
+  favoriteSubtitle: {
+    color: '#6B7280',
+    fontSize: 12,
+  },
+  recentFilesContainer: {
+    marginBottom: 16,
+  },
+  fileItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  fileTitle: {
+    color: '#4B5563',
+  },
+  fileSubtitle: {
+    color: '#6B7280',
+    fontSize: 12,
+  },
+});
+
+export default FileManager;
