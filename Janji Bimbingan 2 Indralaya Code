@@ -128,13 +128,13 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   arrowContainer: {
-    width: 25, // Lebar lingkaran
-    height: 25, // Tinggi lingkaran (sama dengan lebar untuk membentuk lingkaran)
-    borderRadius: 20, // Setengah dari lebar/tinggi untuk membuat lingkaran
-    borderColor: "#FBBF24", // Warna border kuning
-    borderWidth: 2, // Ketebalan border
-    justifyContent: "center", // Menengahkan ikon secara vertikal
-    alignItems: "center", // Menengahkan ikon secara horizontal
+    width: 25, 
+    height: 25, 
+    borderRadius: 20, 
+    borderColor: "#FBBF24", 
+    borderWidth: 2, 
+    justifyContent: "center", 
+    alignItems: "center",
   },  
   headerTitle: {
     fontSize: 18,
