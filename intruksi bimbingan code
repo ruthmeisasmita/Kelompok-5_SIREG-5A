@@ -1,71 +1,103 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Menggunakan react-native-vector-icons untuk ikon
 
-export default function App() {
+const Instruksi = () => {
   return (
-    <ScrollView style={styles.container}>
-      {/* Status Bar Styling */}
-      <StatusBar barStyle="dark-content" />
-
+    <View style={styles.container}>
       {/* Header */}
-      <Text style={styles.header}>Instruksi</Text>
-      
-      {/* Instruction Section */}
-      <View style={styles.instructionContainer}>
-        <Text style={styles.subHeader}>Instruksi Bimbingan</Text>
+      <View style={styles.header}>
+        {/* Back Button */}
+        <TouchableOpacity style={styles.backButton}>
+          <Icon name="arrow-left" size={24} color="#F7DC6F" />
+        </TouchableOpacity>
+        
+        {/* Title Instruksi */}
+        <Text style={styles.headerTitle}>Instruksi</Text>
 
-        <Text style={styles.text}>
+        {/* Status Bar */}
+        <View style={styles.statusBar}>
+          <Icon name="signal" size={18} color="#000" style={styles.statusIcon} />
+          <Icon name="wifi" size={18} color="#000" style={styles.statusIcon} />
+          <Icon name="battery-full" size={18} color="#000" style={styles.statusIcon} />
+        </View>
+      </View>
+
+      {/* Instruksi Bimbingan Section */}
+      <View style={styles.instruksiBimbingan}>
+        <Text style={styles.instruksiBimbinganTitle}>Instruksi Bimbingan</Text>
+      </View>
+
+      {/* List Instruksi */}
+      <View style={styles.listContainer}>
+        <Text style={styles.listItem}>
           1. Dosen Penasehat Akademik (PA) menetapkan jadwal konsultasi PA dan menginformasikan kepada mahasiswa PA masing-masing melalui fitur chat.
         </Text>
-        <Text style={styles.text}>
+        <Text style={styles.listItem}>
           2. Jadwal konsultasi PA dalam satu (1) semester minimal 6 kali dijadwalkan setiap bulan.
         </Text>
-        <Text style={styles.text}>
+        <Text style={styles.listItem}>
           3. Setiap proses konsultasi PA wajib menandatangani KRS.
         </Text>
-        <Text style={styles.text}>
+        <Text style={styles.listItem}>
           4. Mahasiswa konsultasi PA mengikuti jadwal yang sudah ditetapkan oleh dosen PA atau dapat membuat janji dengan dosen PA melalui fitur kontak dosen sebelum konsultasi.
         </Text>
-        <Text style={styles.text}>
+        <Text style={styles.listItem}>
           5. Membawa persyaratan saat konsultasi PA seperti KRS.
         </Text>
       </View>
-    </ScrollView>
+    </View>
   );
-}
+};
 
-// Styling untuk aplikasi
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
+    backgroundColor: '#FFFFFF',
+    padding: 14,
   },
   header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
   },
-  instructionContainer: {
-    marginTop: 20,
-    padding: 15,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-    backgroundColor: '#F9F9F9',
+  backButton: {
+    padding: 8,
   },
-  subHeader: {
+  headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 15,
-    color: '#007AFF',
+    color: '#000',
+    marginLeft: 50, 
   },
-  text: {
+  statusBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  statusIcon: {
+    marginHorizontal: 4,
+  },
+  instruksiBimbingan: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#007bff',
+    paddingBottom: 8,
+    marginBottom: 16,
+  },
+  instruksiBimbinganTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#007bff',
+  },
+  listContainer: {
+    marginTop: 16,
+  },
+  listItem: {
     fontSize: 16,
-    marginBottom: 10,
-    lineHeight: 22,
-    color: '#333',
+    color: '#000',
+    marginBottom: 12,
   },
 });
+
+export default Instruksi;
