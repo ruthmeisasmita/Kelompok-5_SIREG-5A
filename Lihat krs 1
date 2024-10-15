@@ -1,0 +1,136 @@
+import React from 'react';
+import { SafeAreaView, View, Text, TouchableOpacity, Image, StyleSheet, ScrollView, Alert } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const ProgressScreen = () => {
+
+  // Contoh fungsi untuk tombol
+  const handleButtonPress = (buttonType) => {
+    Alert.alert(`Tombol "${buttonType}" ditekan`);
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {/* Header */}
+        <View style={styles.header}>
+          <View style={styles.headerLeft}>
+            <TouchableOpacity onPress={() => Alert.alert('Kembali ditekan')}>
+              <Icon name="arrow-left" size={24} color="#FBBF24" />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>Progres IPK & SKS Lulus</Text>
+          </View>
+          <View style={styles.headerRight}>
+            {/* Menghapus ikon lonceng dan hanya menyisakan ikon menu */}
+            <TouchableOpacity onPress={() => Alert.alert('Menu lebih ditekan')}>
+              <Icon name="ellipsis-v" size={24} color="#4B5563" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        {/* Konten */}
+        <View style={styles.content}>
+          {/* Kontrol */}
+          <View style={styles.controls}>
+            <View style={styles.buttons}>
+              <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('1 / 1')}>
+                <Text style={styles.buttonText}>1 / 1</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('-')}>
+                <Text style={styles.buttonText}>-</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('100%')}>
+                <Text style={styles.buttonText}>100%</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={() => handleButtonPress('+')}>
+                <Text style={styles.buttonText}>+</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          {/* Gambar */}
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('./assets/fotokrs.png')} // Pastikan path gambar benar dan nama file tanpa spasi
+              style={styles.image}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6',
+  },
+  scrollContainer: {
+    flexGrow: 1,
+  },
+  header: {
+    backgroundColor: '#E5E7EB',
+    paddingVertical: 24, // Meningkatkan paddingVertical dari 16 ke 24 untuk menggeser elemen ke bawah
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4, // Menambahkan marginTop sedikit untuk penyesuaian tambahan
+  },
+  headerTitle: {
+    marginLeft: 12,
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#111827',
+    marginTop: 2, // Menambahkan marginTop untuk penyesuaian vertikal
+  },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4, // Menambahkan marginTop sedikit untuk penyesuaian tambahan
+  },
+  content: {
+    padding: 16,
+  },
+  controls: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginBottom: 24, // Menambahkan marginBottom untuk menggeser tombol lebih ke bawah
+    alignItems: 'center',
+  },
+  buttons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  button: {
+    borderWidth: 1,
+    borderColor: '#D1D5DB',
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    marginHorizontal: 4, // Menambahkan marginHorizontal agar jarak antar tombol lebih konsisten
+    backgroundColor: '#FFFFFF',
+  },
+  buttonText: {
+    color: '#111827',
+    fontSize: 14,
+  },
+  imageContainer: {
+    backgroundColor: '#1F2937',
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  image: {
+    width: 300,
+    height: 400,
+  },
+});
+
+export default ProgressScreen;
