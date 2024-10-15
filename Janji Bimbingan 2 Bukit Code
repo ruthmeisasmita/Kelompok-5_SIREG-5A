@@ -1,0 +1,231 @@
+import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons"; // Ganti FontAwesome dengan Ionicons
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+      <View style={styles.arrowContainer}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={20} color="#FBBF24" />
+        </TouchableOpacity>
+        </View>
+        <Text style={styles.headerTitle}>Janji Bimbingan</Text>
+        <View style={styles.headerIcons}>
+          <Ionicons
+            name="search"
+            size={24}
+            color="black"
+            style={styles.iconSpacing}
+          />
+          <Ionicons name="ellipsis-vertical" size={24} color="black" />
+        </View>
+      </View>
+
+      {/* Profile Section */}
+      <View style={styles.profileSection}>
+        <Image
+          source={require("./Assetsibima/Putri 2.png")}
+          style={styles.avatar}
+        />
+        <View style={styles.profileInfo}>
+          <Text style={styles.profileName}>
+            Putri Eka Sevtiyuni, S.SI., M.T
+          </Text>
+          <View style={styles.profileDetail}>
+            <Ionicons name="school" size={14} color="red" />
+            <Text style={styles.profileDetailText}>Magister Teknik</Text>
+          </View>
+          <View style={styles.profileDetail}>
+            <Ionicons name="ribbon" size={14} color="red" />
+            <Text style={styles.profileDetailText}>8 Years</Text>
+          </View>
+          <View style={styles.profileDetail}>
+            <Ionicons name="person" size={14} color="red" />
+            <Text style={styles.profileDetailText}>Dosen Sistem Informasi</Text>
+          </View>
+        </View>
+      </View>
+
+      {/* Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>BUAT JANJI</Text>
+      </TouchableOpacity>
+
+      {/* Tabs */}
+      <View style={styles.tabs}>
+        <View style={styles.tab}>
+        <TouchableOpacity>
+          <Ionicons name="location" size={24} color="black" />
+          </TouchableOpacity>
+          <Text>Indralaya</Text>
+        </View>
+        <View style={styles.tab}>
+        <TouchableOpacity>
+          <Ionicons name="location" size={24} color="black" />
+          </TouchableOpacity>
+          <Text>Bukit</Text>
+          <View style={styles.activeIndicator} />
+        </View>
+        <View style={styles.tab}>
+        <TouchableOpacity>
+          <Ionicons name="chatbox" size={24} color="black" />
+          </TouchableOpacity>
+          <Text>Daftar Mahasiswa</Text>
+        </View>
+      </View>
+
+      {/* Jadwal Mengajar di luar ScrollView */}
+      <Text style={styles.scheduleHeader}>Jadwal Mengajar</Text>
+
+      {/* Schedule (Jadwal Mengajar) */}
+      <ScrollView style={styles.scheduleContainer}>
+        <View style={styles.scheduleItem}>
+          <Text style={styles.scheduleDay}>Kamis:</Text>
+          <Text style={styles.scheduleTime}>
+            10:00 - 12:00 WIB | 08:00 - 10:00 WIB
+          </Text>
+        </View>
+        <View style={styles.separator} />
+        <View style={styles.scheduleItem}>
+          <Text style={styles.scheduleDay}>Jum'at:</Text>
+          <Text style={styles.scheduleTime}>
+            10:00 - 12:00 WIB | 08:00 - 10:00 WIB
+          </Text>
+        </View>
+        <View style={styles.separator} />
+      </ScrollView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 16,
+    marginTop: 50,
+  },
+  arrowContainer: {
+    width: 25, // Lebar lingkaran
+    height: 25, // Tinggi lingkaran (sama dengan lebar untuk membentuk lingkaran)
+    borderRadius: 20, // Setengah dari lebar/tinggi untuk membuat lingkaran
+    borderColor: "#FBBF24", // Warna border kuning
+    borderWidth: 2, // Ketebalan border
+    justifyContent: "center", // Menengahkan ikon secara vertikal
+    alignItems: "center", // Menengahkan ikon secara horizontal
+  },  
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconSpacing: {
+    marginRight: 16,
+  },
+  profileSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 20,
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+  },
+  profileInfo: {
+    marginLeft: 16,
+  },
+  profileName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  profileDetail: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 4,
+  },
+  profileDetailText: {
+    marginLeft: 8,
+  },
+  button: {
+    backgroundColor: "#3470A2",
+    padding: 12,
+    borderRadius: 8,
+    margin: 16,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+  },
+  tabs: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#99D1FF",
+    paddingVertical: 8,
+  },
+  tab: {
+    alignItems: "center",
+  },
+  activeIndicator: {
+    width: '100%',         // Lebar garis sesuai dengan lebar teks
+    height: 3,             // Tinggi garis
+    backgroundColor: 'black', // Warna garis
+    position: 'absolute',  // Menggunakan posisi absolut
+    bottom: -8,            // Memindahkan garis ke bawah
+  },   
+  scheduleContainer: {
+    backgroundColor: "#FFE088",
+    borderTopLeftRadius: 40,  
+    borderTopRightRadius: 40, 
+    borderBottomLeftRadius: 0, 
+    borderBottomRightRadius: 0, 
+    borderBottomWidth: 100,
+    borderBottomColor: "white",
+    padding: 20,
+    margin: 16,
+    
+  },
+  scheduleHeader: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: 20,
+  },
+  scheduleItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  scheduleDay: {
+    fontWeight: "bold",
+    fontSize: 12,
+  },
+  scheduleTime: {
+    fontSize: 12,
+  },
+  separator: {
+    borderBottomColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    marginBottom: 10,
+  },
+});
