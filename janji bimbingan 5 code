@@ -8,11 +8,11 @@ export default function App() {
       <View style={styles.header}>
         <FontAwesome name="arrow-left" size={24} color="#FFD700" />
         <Text style={styles.title}>Janji Bimbingan</Text>
-        <FontAwesome name="ellipsis-v" size={24} color="#000000" />
+        <FontAwesome name="ellipsis-v" size={24} color="black" />
       </View>
       <View style={styles.content}>
         <Image
-          source={{ uri: 'https://storage.googleapis.com/a1aa/image/LtjTuYRE2kKVIF8rPAKPlzeinjkCA1sAKLYgRrZAc8DuLhzJA.jpg' }}
+          source={require('./Assetsibima/janjiBimbingan5.png')}
           style={styles.image}
         />
         <Text style={styles.heading}>Penjadwalan Bimbingan</Text>
