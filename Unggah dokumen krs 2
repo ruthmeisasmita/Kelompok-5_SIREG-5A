@@ -1,0 +1,175 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+
+const ProgressScreen = () => {
+  const handleBackPress = () => {
+    Alert.alert("Back button pressed!");
+  };
+
+  const handleMenuPress = () => {
+    Alert.alert("Menu button pressed!");
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleBackPress} style={styles.icon}>
+          <Text style={styles.iconText}>←</Text>
+        </TouchableOpacity>
+        <Text style={styles.title}>Progres IPK & SKS Lulus</Text>
+        <TouchableOpacity onPress={handleMenuPress} style={styles.icon}>
+          <Text style={styles.iconText}>⋮</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.uploadSection}>
+        <Text style={styles.uploadTitle}>Unggah File KRS</Text>
+        <Text style={styles.uploadSubtitle}>Silakan unggah file dengan format PDF</Text>
+      </View>
+      <View style={styles.dropArea}>
+        <Text style={styles.dropText}>+</Text>
+        <Text style={styles.dropDescription}>Letakkan File Anda Disini</Text>
+        <Text style={styles.dropLink}>Telusuri File dari Perangkat Anda</Text>
+      </View>
+      <View style={styles.fileRow}>
+        <Text style={styles.fileName}>KRS Semester 4.pdf</Text>
+        <Text style={styles.fileSize}>500Kb</Text>
+      </View>
+      <View style={styles.progressContainer}>
+        <View style={styles.progressBar}>
+          <View style={[styles.progressFill, { width: '100%' }]} />
+        </View>
+        <Text style={styles.checkmark}>✔</Text>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.cancelButton}>
+          <Text style={styles.cancelButtonText}>Cancel</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.continueButton}>
+          <Text style={styles.continueButtonText}>Continue</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: 16,
+    marginTop: 25, // Menambahkan margin untuk menggeser tampilan ke bawah
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconText: {
+    fontSize: 24,
+    color: '#888',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    flex: 1, // Menjaga agar judul berada di tengah
+  },
+  uploadSection: {
+    marginBottom: 16,
+  },
+  uploadTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  uploadSubtitle: {
+    color: '#555',
+  },
+  dropArea: {
+    borderWidth: 2,
+    borderColor: '#ccc',
+    borderStyle: 'dashed',
+    borderRadius: 8,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  dropText: {
+    fontSize: 48,
+    color: '#888',
+  },
+  dropDescription: {
+    color: '#555',
+  },
+  dropLink: {
+    color: '#007bff',
+  },
+  fileRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  fileName: {
+    color: '#333',
+  },
+  fileSize: {
+    color: '#777',
+  },
+  progressContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  progressBar: {
+    flex: 1,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#e0e0e0',
+    overflow: 'hidden',
+    marginRight: 8,
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#007bff',
+  },
+  checkmark: {
+    fontSize: 24,
+    color: '#007bff',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cancelButton: {
+    flex: 1,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    padding: 12,
+    alignItems: 'center',
+  },
+  cancelButtonText: {
+    color: '#333',
+  },
+  continueButton: {
+    flex: 1,
+    backgroundColor: '#007bff',
+    borderRadius: 8,
+    padding: 12,
+    alignItems: 'center',
+    marginLeft: 8,
+  },
+  continueButtonText: {
+    color: 'white',
+  },
+});
+
+export default ProgressScreen;
