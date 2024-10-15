@@ -32,11 +32,13 @@ const App = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <FontAwesome name="arrow-left" size={24} color="black" />
+        <View style={styles.leftIcons}>
+          <FontAwesome name="arrow-left" size={24} color="#ffcc00" />
+        </View>
         <Text style={styles.title}>Janji Bimbingan</Text>
-        <View style={styles.headerIcons}>
-          <FontAwesome name="search" size={24} color="black" />
-          <FontAwesome name="ellipsis-v" size={24} color="black" />
+        <View style={styles.rightIcons}>
+          <FontAwesome name="search" size={24} color="#ffcc00" style={styles.icon} />
+          <FontAwesome name="ellipsis-v" size={24} color="#ffcc00" style={styles.icon} />
         </View>
       </View>
       <View style={styles.calendarContainer}>
@@ -96,15 +98,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 40,
+    padding: 10,
+    paddingTop: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  headerIcons: {
+  leftIcons: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  rightIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginLeft: 15,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   calendarContainer: {
     marginTop: 20,
