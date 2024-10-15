@@ -1,0 +1,128 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const ProfileScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Top Bar */}
+      <View style={styles.topBar}>
+        <Text style={styles.timeText}>9:41</Text>
+        <View style={styles.statusIcons}>
+          <Icon name="location-arrow" size={18} color="#000" />
+          <View style={styles.signalIcons}>
+            <Icon name="signal" size={18} color="#000" />
+            <Icon name="wifi" size={18} color="#000" />
+            <View style={styles.batteryContainer}>
+              <Icon name="battery-half" size={18} color="#000" />
+              <Text style={styles.batteryText}>32</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      {/* Profile Section */}
+      <View style={styles.profileSection}>
+      <Image
+          source={require('./Assetsibima/profil telepon.png')}
+          style={styles.profileImage}
+        />
+        <View style={styles.textCenter}>
+          <Text style={styles.nameText}>Putri Eka Sevtiyuni, S.SI., M.T.</Text>
+          <Text style={styles.statusText}>Berdering</Text>
+        </View>
+      </View>
+
+      {/* Action Buttons */}
+      <View style={styles.actionButtons}>
+        <TouchableOpacity style={styles.actionButton}>
+          <Icon name="video" size={24} color="#000" />
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.actionButton, styles.hangupButton]}>
+          <Icon name="phone" size={24} color="#FFF" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.actionButton}>
+          <Icon name="microphone" size={24} color="#000" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#BFDBFE',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+  },
+  topBar: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  timeText: {
+    fontSize: 18,
+    color: '#000',
+  },
+  statusIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  signalIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 10,
+  },
+  batteryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 5,
+  },
+  batteryText: {
+    color: '#000',
+    marginLeft: 5,
+  },
+  profileSection: {
+    alignItems: 'center',
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 20,
+  },
+  textCenter: {
+    alignItems: 'center',
+  },
+  nameText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  statusText: {
+    fontSize: 16,
+    color: '#000',
+    marginTop: 5,
+  },
+  actionButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '80%',
+    marginBottom: 20,
+  },
+  actionButton: {
+    backgroundColor: '#FFF',
+    padding: 15,
+    borderRadius: 50,
+    elevation: 5,
+  },
+  hangupButton: {
+    backgroundColor: '#DC2626',
+  },
+});
+
+export default ProfileScreen;
