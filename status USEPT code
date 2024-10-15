@@ -1,42 +1,55 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <FontAwesome name="arrow-left" style={styles.backIcon} />
-        <Text style={styles.headerTitle}>Status USEPT</Text>
-        <FontAwesome name="ellipsis-v" style={styles.menuIcon} />
+        <FontAwesome name="arrow-left" style={styles.icon} />
+        <Text style={styles.headerText}>Status USEPT</Text>
+        <FontAwesome name="ellipsis-v" style={styles.icon} />
       </View>
-      <View style={styles.profileCard}>
-        <Image
-          source={{ uri: 'https://storage.googleapis.com/a1aa/image/JBxmYALwXMb5IJGGx5jNPgfFzFWRCZcbfP6s6VUfWHdi3eXOB.jpg' }}
-          style={styles.profileImage}
-        />
-        <View style={styles.profileInfo}>
-          <Text style={styles.profileName}>CHA EUNWOO</Text>
-          <Text style={styles.profileText}><Text style={styles.boldText}>NIM:</Text> 09031182227026</Text>
-          <Text style={styles.profileText}><Text style={styles.boldText}>Test Type:</Text> USEPT</Text>
-          <Text style={[styles.profileText, { textAlign: 'right' }]}><Text style={styles.boldText}>Test Date:</Text> 21/02/2024</Text>
+      <View style={styles.card}>
+        <View style={styles.profileContainer}>
+          <Image
+            source={require('./Assetsibima/profil.png')}
+            style={styles.profileImage}
+          />
+          <Text style={styles.cardTitle}>CHA EUNWOO</Text>
         </View>
+        <Text style={styles.cardText}>
+          <Text style={styles.highlight}>NIM: </Text>
+          09031182227026
+        </Text>
+        <Text style={styles.cardText}>
+          <Text style={styles.highlight}>Test Type: </Text>
+          USEPT
+        </Text>
+        <Text style={styles.cardText}>
+          <Text style={styles.highlight}>Test Date: </Text>
+          21/02/2024
+        </Text>
       </View>
       <View style={styles.scoreCard}>
-        <Text style={styles.scoreTitle}>Score</Text>
-        <Text style={styles.scoreText}>Silakan buka Sistem Informasi Akademik (SIMAK) untuk melihat detail skor</Text>
-        <Text style={styles.scoreValue}>520</Text>
+        <View style={styles.scoreTextContainer}>
+          <Text style={styles.cardTitle}>Score</Text>
+          <Text style={styles.score}>520</Text>
+        </View>
+        <Text style={styles.cardText}>
+          Silakan buka Sistem Informasi Akademik (SIMAK) untuk melihat detail skor
+        </Text>
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Buka SIMAK</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.congratulations}>Selamat, anda lulus USEPT 2024!</Text>
+      <Text style={styles.congrats}>Selamat, anda lulus USEPT 2024!</Text>
       <Image
-        source={{ uri: 'https://storage.googleapis.com/a1aa/image/qAqL9tn0jhoNMZFzWI1NmuNzDaTUU1G1RPe20lo8NbX4tflTA.jpg' }}
-        style={styles.trophyImage}
+        source={require('./Assetsibima/status_USEPT2.png')}
+        style={styles.trophy}
       />
-      <TouchableOpacity style={styles.homeButton}>
-        <Text style={styles.homeButtonText}>BERANDA</Text>
+      <TouchableOpacity style={styles.footer}>
+        <Text style={styles.footerText}>BERANDA</Text>
       </TouchableOpacity>
     </View>
   );
@@ -45,88 +58,74 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
-    paddingTop: 40,
+    padding: 20,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-    paddingVertical: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    padding: 10,
+    paddingTop: 30,
+    paddingHorizontal: 0,
+    backgroundColor: '#ffffff',
   },
-  headerTitle: {
+  headerText: {
     fontSize: 24,
     fontWeight: 'bold',
   },
-  backIcon: {
+  icon: {
     fontSize: 24,
     color: '#f1c40f',
   },
-  menuIcon: {
-    fontSize: 24,
-    color: '#f1c40f',
-  },
-  profileCard: {
+  card: {
     backgroundColor: '#5DADE2',
     borderRadius: 10,
     padding: 20,
-    marginVertical: 20,
-    width: '90%',
+    marginVertical: 10,
+    width: '100%',
+  },
+  profileContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 10,
   },
   profileImage: {
+    borderRadius: 30,
     width: 60,
     height: 60,
-    borderRadius: 30,
     marginRight: 20,
   },
-  profileInfo: {
-    flex: 1,
-  },
-  profileName: {
+  cardTitle: {
     fontSize: 20,
-    color: '#fff',
-    fontWeight: 'bold',
+    color: '#ffffff',
   },
-  profileText: {
-    color: '#fff',
-    marginVertical: 2,
+  cardText: {
+    color: '#ffffff',
+    marginVertical: 5,
   },
-  boldText: {
-    fontWeight: 'bold',
+  highlight: {
     color: '#f1c40f',
+    fontWeight: 'bold',
   },
   scoreCard: {
     backgroundColor: '#5DADE2',
     borderRadius: 10,
     padding: 20,
-    width: '90%',
-    alignItems: 'flex-start',
-  },
-  scoreTitle: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  scoreText: {
-    color: '#fff',
     marginVertical: 10,
+    width: '100%',
   },
-  scoreValue: {
+  scoreTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  score: {
     fontSize: 24,
-    color: '#fff',
     fontWeight: 'bold',
-    alignSelf: 'flex-end',
+    color: '#ffffff',
   },
   button: {
     backgroundColor: '#f1c40f',
@@ -134,29 +133,31 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginTop: 10,
+    alignSelf: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: '#ffffff',
     fontSize: 16,
   },
-  congratulations: {
+  congrats: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginVertical: 40,
+    marginVertical: 20,
   },
-  trophyImage: {
+  trophy: {
     width: 100,
     height: 100,
   },
-  homeButton: {
-    backgroundColor: '#2874A6',
-    borderRadius: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    marginTop: 20,
+  footer: {
+    backgroundColor: '#2E86C1',
+    borderRadius: 30,
+    padding: 10,
+    marginVertical: 20,
+    width: '100%',
+    alignItems: 'center',
   },
-  homeButtonText: {
-    color: '#fff',
-    fontSize: 18,
+  footerText: {
+    color: '#ffffff',
+    fontSize: 15,
   },
 });
