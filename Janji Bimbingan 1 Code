@@ -36,7 +36,7 @@ const App = () => {
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.card}>
           <Image
-            source={require('./AseetSIBIMA/Putri.png')}
+            source={require('./Assetsibima/Putri.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -52,7 +52,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={require('./AseetSIBIMA/Alsella.png')}
+            source={require('./Assetsibima/Alsella.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -68,7 +68,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={require('./AseetSIBIMA/Endang.png')}
+            source={require('./Assetsibima/Endang.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
@@ -84,7 +84,7 @@ const App = () => {
         </View>
         <View style={styles.card}>
           <Image
-            source={require('./AseetSIBIMA/Pacu.png')}
+            source={require('./Assetsibima/Pacu.png')}
             style={styles.avatar}
           />
           <View style={styles.cardContent}>
