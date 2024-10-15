@@ -25,7 +25,7 @@ const App = () => {
       {/* Kartu Informasi */}
       <View style={styles.card}>
         <Image
-          source={require("./AseetSIBIMA/Instruksi Bimbingan.png")}
+          source={require("./Assetsibima/Instruksi Bimbingan.png")}
           style={styles.cardImage}
         />
         <View style={styles.cardContent}>
@@ -41,7 +41,7 @@ const App = () => {
 
       <View style={styles.card}>
         <Image
-          source={require("./AseetSIBIMA/Jadwal Dosen.png")}
+          source={require("./Assetsibima/Jadwal Dosen.png")}
           style={styles.cardImage}
         />
         <View style={styles.cardContent}>
@@ -58,7 +58,7 @@ const App = () => {
 
       <View style={styles.card}>
         <Image
-          source={require("./AseetSIBIMA/Kalender Bimbingan.png")}
+          source={require("./Assetsibima/Kalender Bimbingan.png")}
           style={styles.cardImage}
         />
         <View style={styles.cardContent}>
@@ -76,7 +76,7 @@ const App = () => {
 
       <View style={styles.card}>
         <Image
-          source={require("./AseetSIBIMA/Logbook Bimbingan.png")}
+          source={require("./Assetsibima/Logbook Bimbingan.png")}
           style={styles.cardImage}
         />
         <View style={styles.cardContent}>
