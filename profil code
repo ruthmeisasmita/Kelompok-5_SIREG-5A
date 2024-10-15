@@ -10,7 +10,7 @@ export default function ProfileScreen() {
       </View>
       <Text style={styles.title}>Profil</Text>
       <Image
-        source={{ uri: 'https://storage.googleapis.com/a1aa/image/dp0BLyNfU0y3ICdoznojpfMwYfaRfVVaExcBZIHvf0L04BwcC.jpg' }}
+        source={require('./Assetsibima/profil.png')}
         style={styles.profilePic}
       />
       <Text style={styles.profileName}>CHA EUNWOO</Text>
