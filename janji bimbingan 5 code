@@ -14,14 +14,6 @@ export default function App() {
         <Text style={styles.headerTitle}>Janji Bimbingan</Text>
         <View style={styles.headerIcons}>
           <TouchableOpacity>
-            <Ionicons
-              name="search"
-              size={24}
-              color="black"
-              style={styles.iconSpacing}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity>
             <Ionicons name="ellipsis-vertical" size={24} color="black" />
           </TouchableOpacity>
         </View>
