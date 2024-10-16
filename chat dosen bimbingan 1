@@ -1,71 +1,102 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons"; // Import Ionicons
 
-const GuidanceSchedule = () => {
+const App = () => {
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          <Icon name="arrow-left" size={24} color="#F59E0B" />
-          <Text style={styles.headerText}>Putri Eka Sevtiyuni, S.Si., M.T.</Text>
+          <TouchableOpacity>
+            <Ionicons name="arrow-back" size={20} color="#FBBF24" />
+          </TouchableOpacity>
         </View>
+        <Text style={styles.headerText}>Putri Eka Sevtiyuni, S.Si., M.T.</Text>
         <View style={styles.headerRight}>
-          <Icon name="phone" size={24} color="#4B5563" />
-          <Icon name="video" size={24} color="#4B5563" style={styles.iconSpacing} />
+          <TouchableOpacity>
+            <Ionicons name="call" size={24} color="#4B5563" style={styles.iconSpacing} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="videocam" size={24} color="#4B5563" />
+          </TouchableOpacity>
         </View>
       </View>
 
-      {/* Cards */}
-      <View style={styles.cardContainer}>
-        {/* Card 1 */}
+      <View style={styles.content}>
         <View style={styles.card}>
-        <Image source={require('./Assetsibima/jadwal_bimbingan.png')} style={styles.cardImage} />
-          <View style={styles.cardContent}>
+          <View style={styles.cardTopYellow}>
+            <Image
+              source={require("./Assetsibima/Status.png")}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.cardBottomWhite}>
             <Text style={styles.cardTitle}>Jadwal Bimbingan</Text>
-            <Text style={styles.cardDescription}>Jadwal bimbingan anda telah dilihat. Silakan cek status penjadwalan</Text>
-            <TouchableOpacity style={styles.button}>
+            <Text style={styles.cardText}>
+              Jadwal bimbingan anda telah dilihat. Silahkan cek status penjadwalan
+            </Text>
+            <TouchableOpacity style={[styles.button, styles.buttonYellow]}>
               <Text style={styles.buttonText}>Periksa Sekarang</Text>
             </TouchableOpacity>
           </View>
         </View>
-
-        {/* Card 2 */}
-        <View style={styles.card}>
-        <Image source={require('./Assetsibima/forum_bimbingan.png')} style={styles.cardImage} />
-          <View style={styles.cardContent}>
+        <View style={[styles.card, styles.cardLeft]}>
+          <View style={styles.cardTopYellow}>
+            <Image
+              source={require("./Assetsibima/Gambar.png")}
+              style={styles.image}
+            />
+          </View>
+          <View style={styles.cardBottomWhite}>
             <Text style={styles.cardTitle}>Forum Bimbingan</Text>
-            <Text style={styles.cardDescription}>Forum bimbingan mahasiswa bersama Putri Eka Sevtiyuni</Text>
-            <TouchableOpacity style={styles.button}>
+            <Text style={styles.cardText}>
+              Forum bimbingan mahasiswa bersama Putri Eka Sevtiyuni
+            </Text>
+            <TouchableOpacity
+              style={[styles.button, styles.buttonYellow, styles.buttonMarginTop]}
+            >
               <Text style={styles.buttonText}>Gabung Forum</Text>
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* Kotak tambahan di bawah Forum Bimbingan */}
+        <View style={styles.infoBox}>
+          <Text style={styles.infoText}>
+            Silahkan bergabung kedalam forum bimbingan tersebut agar dapat mengikuti jadwal bimbingan rutin
+          </Text>
+        </View>
       </View>
 
-      {/* Footer Note */}
-      <View style={styles.footerNote}>
-        <Text style={styles.footerNoteText}>
-          Silakan bergabung ke dalam forum bimbingan tersebut agar dapat mengikuti jadwal bimbingan rutin
-        </Text>
-      </View>
+      {/* Footer Section */}
+      <View style={styles.footer}>
+        <TouchableOpacity>
+          <Ionicons name="happy-outline" size={24} color="#4B5563" />
+        </TouchableOpacity>
 
-      {/* Chat Input */}
-      <View style={styles.chatInputContainer}>
-        <Icon name="smile-o" size={28} color="#6B7280" />
-        <TextInput
-          style={styles.chatInput}
-          placeholder="Ketik sesuatu"
-          placeholderTextColor="#6B7280"
-        />
-        <Icon name="camera" size={28} color="#6B7280" />
-        <View style={styles.chatButtons}>
-          <TouchableOpacity style={styles.chatButton}>
-            <Icon name="microphone" size={20} color="#FFF" />
+        <TextInput style={styles.input} placeholder="ketik sesuatu" />
+
+        <TouchableOpacity>
+          <Ionicons name="camera" size={24} color="#4B5563" style={styles.iconSpacing} />
+        </TouchableOpacity>
+
+        {/* Wrapper untuk ikon mic dan paper plane */}
+        <View style={styles.micAndSend}>
+          {/* Ikon mic */}
+          <TouchableOpacity style={[styles.buttonMicSend]}>
+            <Ionicons name="mic-outline" size={20} color="#FFC727" />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.chatButton}>
-            <Icon name="paper-plane" size={20} color="#FFF" />
+
+          {/* Ikon paper-plane */}
+          <TouchableOpacity style={[styles.buttonMicSend]}>
+            <Ionicons name="paper-plane" size={20} color="#FFC727" />
           </TouchableOpacity>
         </View>
       </View>
@@ -76,115 +107,143 @@ const GuidanceSchedule = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
-    padding: 16,
+    backgroundColor: "#FFFFFF",
+    marginTop: 50,
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 24,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 16,
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E5E7EB",
   },
   headerLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    width: 25,
+    height: 25,
+    borderRadius: 20,
+    borderColor: "#FBBF24",
+    borderWidth: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   headerText: {
     marginLeft: 8,
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#1F2937',
+    fontSize: 16,
+    fontWeight: "bold",
   },
   headerRight: {
-    flexDirection: 'row',
+    flexDirection: "row",
+    alignItems: "center",
   },
   iconSpacing: {
-    marginLeft: 16,
+    marginRight: 16,
   },
-  cardContainer: {
-    marginTop: 24,
+  content: {
+    padding: 16,
+    flexDirection: "column", // Mengubah arah menjadi kolom
   },
   card: {
-    backgroundColor: '#FEF3C7',
-    borderRadius: 10,
-    shadowColor: '#000',
+    borderRadius: 8,
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 5,
-    padding: 16,
-    flexDirection: 'row',
-    marginBottom: 16,
+    elevation: 2,
+    width: "58%", // Lebar setiap kartu
+    marginBottom: 25, // Jarak antar card
   },
-  cardImage: {
+  cardLeft: {
+    alignSelf: "flex-start", // Mengatur kartu kuning ke kiri
+  },
+  cardTopYellow: {
+    backgroundColor: "#F7CE45", // Bagian atas kuning
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 15,
+  },
+  cardBottomWhite: {
+    backgroundColor: "#FFFFFF", // Bagian bawah putih
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    padding: 8,
+  },
+  image: {
     width: 64,
     height: 64,
     borderRadius: 32,
-  },
-  cardContent: {
-    marginLeft: 16,
-    flex: 1,
+    alignSelf: "center",
   },
   cardTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#1F2937',
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
   },
-  cardDescription: {
+  cardText: {
     marginTop: 4,
     fontSize: 14,
-    color: '#6B7280',
+    color: "#000000",
+    textAlign: "center",
   },
   button: {
-    marginTop: 12,
-    backgroundColor: '#F59E0B',
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 25,
+    borderRadius: 16,
+    alignItems: "center",
+    marginTop: 10,
+  },
+  buttonYellow: {
+    backgroundColor: "#F7CE45",
+  },
+  buttonMicSend: {
+    backgroundColor: "#5495D1", // Sama seperti ikon paper-plane
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    marginTop: 4, // Jarak yang sama antara mic dan paper-plane
+    marginBottom: 4, // Membuat jarak serupa untuk kesan seimbang
   },
   buttonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "bold",
   },
-  footerNote: {
-    marginTop: 24,
-    backgroundColor: '#FEF3C7',
-    padding: 16,
-    borderRadius: 10,
+  footer: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 5, // Mengurangi padding agar lebih ke atas
+    backgroundColor: "#FFFFFF",
+    borderTopWidth: 1,
+    borderTopColor: "#E5E7EB",
   },
-  footerNoteText: {
-    color: '#6B7280',
-  },
-  chatInputContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#F3F4F6',
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  chatInput: {
+  input: {
     flex: 1,
-    backgroundColor: '#FFF',
-    borderRadius: 25,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderColor: '#D1D5DB',
+    padding: 8,
+    marginHorizontal: 8,
     borderWidth: 1,
-    marginHorizontal: 12,
+    borderColor: "#E5E7EB",
+    borderRadius: 16,
   },
-  chatButtons: {
-    flexDirection: 'row',
+  micAndSend: {
+    flexDirection: "column", // Mengatur mic dan paper-plane agar vertikal
+    alignItems: "center",
+    justifyContent: "center",
   },
-  chatButton: {
-    backgroundColor: '#3B82F6',
-    padding: 12,
-    borderRadius: 50,
-    marginLeft: 8,
+  infoBox: {
+    backgroundColor: "#FFF6CC",
+    padding: 8, // Mengurangi padding agar lebih pendek
+    borderRadius: 8,
+    marginTop: 10,
+    width: "85%", // Lebar box dikurangi
+    alignSelf: "center", // Pusatkan kotak
+  },
+  infoText: {
+    color: "#000",
+    fontSize: 14,
+    textAlign: "center",
   },
 });
 
-export default GuidanceSchedule;
+export default App;
