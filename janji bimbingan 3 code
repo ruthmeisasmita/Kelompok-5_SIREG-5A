@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(8);
@@ -32,20 +32,32 @@ const App = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.leftIcons}>
-          <FontAwesome name="arrow-left" size={24} color="#ffcc00" />
+      <View style={styles.arrowContainer}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={20} color="#FBBF24" />
+        </TouchableOpacity>
         </View>
-        <Text style={styles.title}>Janji Bimbingan</Text>
-        <View style={styles.rightIcons}>
-          <FontAwesome name="search" size={24} color="black" style={styles.icon} />
-          <FontAwesome name="ellipsis-v" size={24} color="black" style={styles.icon} />
+        <Text style={styles.headerTitle}>Janji Bimbingan</Text>
+        <View style={styles.headerIcons}>
+          <TouchableOpacity>
+            <Ionicons
+              name="search"
+              size={24}
+              color="black"
+              style={styles.iconSpacing}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="ellipsis-vertical" size={24} color="black" />
+          </TouchableOpacity>
         </View>
       </View>
+      
       <View style={styles.calendarContainer}>
         <View style={styles.calendarHeader}>
-          <FontAwesome name="chevron-left" size={24} color="black" />
+          < Ionicons name="arrow-back" size={24} color="black" />
           <Text style={styles.calendarTitle}>MEI 20 </Text>
-          <FontAwesome name="chevron-right" size={24} color="black" />
+          <Ionicons name="arrow-forward" size={24} color="black" />
         </View>
         <View style={styles.calendar}>
           <View style={styles.weekRow}>
@@ -95,28 +107,33 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    paddingTop: 40,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "white",
+    padding: 16,
+    paddingHorizontal: 2,
+    marginTop: 30,
   },
-  leftIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  rightIcons: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  icon: {
-    marginLeft: 15,
-  },
-  title: {
+  arrowContainer: {
+    width: 25, 
+    height: 25, 
+    borderRadius: 20, 
+    borderColor: "#FBBF24", 
+    borderWidth: 2, 
+    justifyContent: "center",
+    alignItems: "center",
+  },  
+  headerTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+  },
+  headerIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  iconSpacing: {
+    marginRight: 16,
   },
   calendarContainer: {
     marginTop: 20,
