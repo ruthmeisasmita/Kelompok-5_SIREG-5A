@@ -1,0 +1,187 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
+export default function App() {
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+      <View style={styles.arrowContainer}>
+        <TouchableOpacity>
+          <Ionicons name="arrow-back" size={20} color="#FBBF24" />
+        </TouchableOpacity>
+        </View>
+        <Text style={styles.headerTitle}>Progres IPK & SKS Lulus</Text>
+        <Ionicons name="ellipsis-vertical" size={24} color="#000000" />
+      </View>
+      <View style={styles.divider} />
+      <View style={styles.centered}>
+        <View style={styles.blueDivider} />
+        <Text style={styles.ipkTitle}>IPK</Text>
+        <View style={styles.blueDivider} />
+      </View>
+      <View style={styles.sortContainer}>
+        <Text style={styles.sortText}>Urutkan</Text>
+        <View style={styles.sortButtons}>
+          <TouchableOpacity style={[styles.sortButton, styles.sortButtonActive]}>
+            <Text style={styles.sortButtonText}>Terbaru</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.sortButton}>
+            <Text style={[styles.sortButtonText, styles.sortButtonTextActive]}>Terlama</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <View style={styles.cardContainer}>
+        {['KHS Semester 4', 'KHS Semester 3', 'KHS Semester 2', 'KHS Semester 1'].map((semester, index) => (
+          <View key={index} style={styles.card}>
+            <Image
+              source={require("./Assetsibima/PDF.png")}
+              style={styles.icon}
+            />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>{semester}</Text>
+              <View style={styles.cardButtons}>
+                <TouchableOpacity style={styles.viewButton}>
+                  <Text style={styles.viewButtonText}>Lihat</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.deleteButton}>
+                  <Text style={styles.deleteButtonText}>Hapus</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        ))}
+      </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    marginTop: 50,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+  },
+  arrowContainer: {
+    width: 25, 
+    height: 25, 
+    borderRadius: 20, 
+    borderColor: "#FBBF24", 
+    borderWidth: 2, 
+    justifyContent: "center",
+    alignItems: "center",
+  },  
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  divider: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+  },
+  centered: {
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  blueDivider: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#3470A2',
+    width: '100%',
+  },
+  ipkTitle: {
+    color: '#3470A2',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginVertical: 8,
+  },
+  sortContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    marginBottom: 16,
+  },
+  sortText: {
+    color: '#000000',
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  sortButtons: {
+    flexDirection: 'row',
+    marginRight: 80,
+  },
+  sortButton: {
+    backgroundColor: '#D9D9D9',
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    borderRadius: 9999,
+    marginRight: 8,
+  },
+  sortButtonActive: {
+    backgroundColor: '#89CFF0',
+  },
+  sortButtonText: {
+    color: '#3470A2',
+    fontWeight: 'bold',
+  },
+  sortButtonTextActive: {
+    color: '#3470A2',
+  },
+  cardContainer: {
+    paddingHorizontal: 16,
+    marginTop: 20,
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    padding: 23,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  icon: {
+    width: 48,
+    height: 48,
+  },
+  cardContent: {
+    marginLeft: 16,
+    flex: 1,
+  },
+  cardTitle: {
+    fontWeight: 'bold',
+  },
+  cardButtons: {
+    flexDirection: 'row',
+    marginTop: 8,
+  },
+  viewButton: {
+    backgroundColor: '#F7CE45',
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    borderRadius: 9999,
+    marginRight: 8,
+  },
+  viewButtonText: {
+    color: '#FFFFFF',
+  },
+  deleteButton: {
+    backgroundColor: '#FF5555',
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    borderRadius: 9999,
+  },
+  deleteButtonText: {
+    color: '#FFFFFF',
+  },
+});
