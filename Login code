@@ -7,7 +7,7 @@ const LoginScreen = () => {
   return (
     <View style={styles.container}>
       {/* Gambar Logo */}
-      <Image source={require('./Assetssibima/gambar.png')} style={styles.profileImage} />
+      <Image source={require('../../Assetssibima/gambar.png')} style={styles.profileImage} />
       
       {/* Judul dan Subtitle */}
       <Text style={styles.title}>Selamat Datang</Text>
