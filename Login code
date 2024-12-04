@@ -1,0 +1,133 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Switch } from 'react-native';
+
+const LoginScreen = () => {
+  const [isRememberMe, setIsRememberMe] = useState(false);
+
+  return (
+    <View style={styles.container}>
+      {/* Gambar Logo */}
+      <Image source={require('./Assetssibima/gambar.png')} style={styles.profileImage} />
+      
+      {/* Judul dan Subtitle */}
+      <Text style={styles.title}>Selamat Datang</Text>
+      <Text style={styles.subtitle}>Sign in untuk akses akun anda</Text>
+
+      {/* Input Container */}
+      <View style={styles.inputContainer}>
+        <TextInput placeholder="Email" style={styles.input} keyboardType="email-address" />
+        <TextInput placeholder="Password" style={styles.input} secureTextEntry />
+      </View>
+
+      {/* Opsi Remember Me dan Lupa Password */}
+      <View style={styles.optionsContainer}>
+        <View style={styles.rememberMeContainer}>
+          <Switch value={isRememberMe} onValueChange={setIsRememberMe} />
+          <Text style={styles.rememberMeText}>Remember me</Text>
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.forgotPassword}>Lupa password?</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Tombol Login */}
+      <TouchableOpacity style={styles.loginButton}>
+        <Text style={styles.loginButtonText}>LOGIN</Text>
+      </TouchableOpacity>
+
+      {/* Registrasi */}
+      <View style={{ marginTop: 20 }}>
+        <Text style={styles.registerText}>
+          Belum memiliki akun?{' '}
+          <Text style={styles.registerLink}>Register</Text>
+        </Text>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 16,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: 'gray',
+    marginBottom: 20,
+  },
+  inputContainer: {
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 25,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+    marginBottom: 20,
+  },
+  input: {
+    width: '100%',
+    padding: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    marginBottom: 15,
+    marginTop: 8,
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+    width: '100%',
+  },
+  rememberMeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  rememberMeText: {
+    marginLeft: 8,
+    color: 'gray',
+  },
+  forgotPassword: {
+    color: '#3470A2',
+    fontSize: 14,
+  },
+  loginButton: {
+    backgroundColor: '#3470A2',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    width: '100%',
+  },
+  loginButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  registerText: {
+    color: 'gray',
+  },
+  registerLink: {
+    color: '#3470A2',
+  },
+});
+
+export default LoginScreen;
+
