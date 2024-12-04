@@ -1,0 +1,118 @@
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
+
+function Register() {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      {/* Gambar atau Logo */}
+      <View style={styles.imageContainer}>
+        <Image source={require('../../Assetssibima/gambar.png')} style={styles.profileImage} />
+      </View>
+
+      {/* Judul dan Subjudul */}
+      <Text style={styles.title}>Mulai Sekarang</Text>
+      <Text style={styles.subtitle}>Masukkan data anda untuk registrasi</Text>
+
+      {/* Input Form */}
+      <View style={styles.inputContainer}>
+        <View style={styles.inputWrapper}>
+          <TextInput placeholder="Nama Lengkap" style={styles.input} />
+        </View>
+        <View style={styles.inputWrapper}>
+          <TextInput placeholder="Email" style={styles.input} keyboardType="email-address" />
+        </View>
+        <View style={styles.inputWrapper}>
+          <TextInput placeholder="Password" style={styles.input} secureTextEntry />
+        </View>
+      </View>
+
+      {/* Tombol Registrasi */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>REGISTRASI</Text>
+      </TouchableOpacity>
+
+      {/* Footer untuk Login */}
+      <Text style={styles.footerText}>
+        Sudah memiliki akun?{' '}
+        <Text style={styles.loginText}>Login</Text>
+      </Text>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    padding: 20,
+  },
+  imageContainer: {
+    marginBottom: 20,
+  },
+  image: {
+    width: 150,
+    height: 150,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: '600',
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: 'gray',
+    marginBottom: 20,
+  },
+  inputContainer: {
+    width: '100%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+    marginBottom: 20,
+  },
+  inputWrapper: {
+    position: 'relative',
+    marginBottom: 15,
+  },
+  input: {
+    width: '100%',
+    padding: 15,
+    paddingLeft: 20,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 8,
+    marginBottom:  8,
+    marginTop: 2,
+  },
+
+  button: {
+    width: '100%',
+    backgroundColor: '#3470A2',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  footerText: {
+    marginTop: 20,
+    color: 'gray',
+  },
+  loginText: {
+    color: '#3470A2',
+    fontWeight: '600',
+  },
+});
+
+export default Register;
